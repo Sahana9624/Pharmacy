@@ -1,0 +1,217 @@
+.faqSection {
+  width: 100%;
+  background-color: #ffffff;
+  padding: clamp(4rem, 8vh, 6.5rem) 0;
+}
+
+.faqGridContainer {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--global-padding-x);
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.8rem, 3.5vw, 3.5rem);
+  align-items: flex-start;
+}
+
+/* LEFT COLUMN */
+.faqLeftCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.pillBadgeGreen {
+  display: inline-block;
+  background: #EDFBF3;
+  color: #0E8B43;
+  font-size: clamp(0.875rem, 1rem, 1.5rem);
+  font-weight: 400;
+  padding: 0.4rem 1.4rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+}
+
+.faqTitle {
+  font-size: clamp(2rem, 2rem, 3.2rem);
+  font-weight: 400;
+  color: #122056;
+  line-height: 1.25;
+  margin: 0 0 1rem 0;
+  /* max-width: 940px; */
+}
+
+.faqSubtitle {
+  font-size: clamp(0.95rem, 1.5rem, 1.75rem);
+  font-weight: 400;
+  color: #64748b;
+  line-height: 1.6;
+  max-width: 660px;
+  margin: 0;
+}
+
+/* RIGHT COLUMN ACCORDION */
+.faqRightCol {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.faqList {
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  /* gap: 4px; */
+  /* gap between default/closed FAQ cards */
+}
+
+.faqItem {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin-bottom: -1rem;
+  transition: margin-bottom 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faqItemOpen {
+  margin-bottom: 16px;
+}
+
+.faqQuestionBtn {
+  width: 100%;
+  min-height: 54px;
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* gap: 1rem; */
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  font-size: clamp(0.95rem, 1.25rem, 1.35rem);
+  font-weight: 400;
+  font-family: inherit;
+  color: #122056;
+  cursor: pointer;
+  text-align: left;
+  line-height: 1.4;
+  transition: background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faqQuestionBtn:hover {
+  border-color: #cbd5e1;
+  background: #f1f5f9;
+}
+
+.faqQuestionBtnOpen {
+  background: #0721A0;
+  color: #ffffff;
+  border-color: #0721A0;
+  box-shadow: 0 4px 14px rgba(6, 35, 160, 0.18);
+}
+
+.faqQuestionBtnOpen:hover {
+  background: #0721A0;
+  border-color: #0721A0;
+}
+
+.faqChevron {
+  width: 9px;
+  height: 14px;
+  object-fit: contain;
+  flex-shrink: 0;
+  transform: rotate(90deg);
+  transform-origin: 50% 50%;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(0);
+}
+
+.faqChevronRotate {
+  transform: rotate(-90deg);
+  filter: brightness(0) invert(1);
+}
+
+/* SMOOTH ACCORDION EXPAND/COLLAPSE */
+.faqAnswerWrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s ease,
+    margin-top 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.faqAnswerWrapperOpen {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 8px;
+}
+
+.faqAnswerBox {
+  min-height: 0;
+  background: #F5F8FC;
+  border-radius: 14px;
+  padding: 16px 20px;
+  box-sizing: border-box;
+}
+
+.faqAnswerBox p {
+  font-size: clamp(0.9rem, 1.25rem, 1.35rem);
+  color: #122056;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 900px) {
+  .faqGridContainer {
+    grid-template-columns: 1fr;
+    /* gap: 2.5rem; */
+  }
+
+  .faqList {
+    max-width: 100%;
+  }
+
+  .faqItem{
+      margin-bottom: -1rem;
+  }
+
+  .pillBadgeGreen{
+     font-size: clamp(0.8rem, 1rem, 1.375rem);
+     text-align: center;
+     justify-items: center;
+     margin: 0 auto 2rem;
+  }
+
+  .faqTitle{
+    font-size: clamp(0.8rem, 1.375rem, 1.375rem);
+    text-align: center;
+  }
+
+  .faqSubtitle{
+    text-align: center;
+    font-size: clamp(0.8rem, 1.125rem, 1.375rem);
+  }
+
+  .faqItemOpen {
+  margin-bottom: 16px;
+}
+
+  .faqQuestionBtn,
+  .faqAnswerBox p {
+    font-size: clamp(0.8rem, 1.25rem, 1.375rem);
+  }
+}

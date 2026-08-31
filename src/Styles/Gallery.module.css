@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+.gallery {
+  --color-navy: #0c1b4d;
+  --color-navy-light: #16275f;
+  --color-blue-deep: #1d2f6f;
+  --color-blue-accent: #2447c4;
+  --color-cyan: #2fd4d9;
+  --color-text-dark: #1a1a2e;
+  --color-text-muted: #6C6C6C;
+  --color-bg-light: #eef3fb;
+  --color-bg-soft: #f6f8fc;
+  --color-white: #ffffff;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --section-pad-y: clamp(2.5rem, 6vw, 5rem);
+  --section-pad-x: var(--global-padding-x);
+  --max-width: 100%;
+
+  font-family: "Outfit", sans-serif;
+  color: var(--color-text-dark);
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.gallery img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------------------------------------------------------------------- */
+/* HEADER                                                                   */
+/* ---------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  width: 100%;
+  padding-bottom: clamp(1rem, 2vw, 2rem);
+}
+
+.hero__bg {
+  width: 100%;
+  height: clamp(150px, 20vw, 281px);
+  object-fit: cover;
+  display: block;
+  object-position: center 45%;
+}
+
+.header-card {
+  position: relative;
+  z-index: 1;
+  width: calc(100% - (var(--global-padding-x) * 2));
+  margin: -3rem auto 0;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 40px rgba(12, 27, 77, 0.12);
+  padding: 31px 1.5rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.header-card h1 {
+  font-size: clamp(1.25rem, 1.75rem, 3rem);
+  font-weight: 500;
+  color: #0721A0;
+  margin: 0;
+}
+
+.breadcrumb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: clamp(0.95rem, 1.35rem, 1.85rem);
+  font-weight: 400;
+  color: #686868;
+  margin-bottom: 1rem;
+}
+
+.breadcrumb a {
+  color: #686868;
+  text-decoration: none;
+}
+
+.breadcrumbArrow {
+  width: 7px;
+  height: 12px;
+  object-fit: contain;
+  margin: 0 4px;
+}
+
+.breadcrumb__current {
+  color: #414141;
+}
+
+/* ---------------------------------------------------------------------- */
+/* GALLERY GRID                                                            */
+/* ---------------------------------------------------------------------- */
+
+.grid-section {
+  width: 100%;
+  padding: 3% var(--section-pad-x) 4%;
+  box-sizing: border-box;
+}
+
+.gallery-grid {
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+  box-sizing: border-box;
+}
+
+.gallery-card {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.gallery-card__img-wrap {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.gallery-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 32, 86, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.plus-icon {
+  color: white;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.gallery-card__title {
+  font-weight: 400;
+  font-size: clamp(1rem, 1.2rem, 1.85rem);
+  color: #373737;
+}
+
+/* ==========================================================================
+   BREAKPOINTS
+   ========================================================================== */
+
+@media (min-width: 640px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .btn,
+  .gallery-card__img {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero {
+    padding-bottom: 2rem;
+  }
+
+  .hero__bg {
+    height: 50vh;
+  }
+
+  .header-card {
+    width: calc(100% - (var(--global-padding-x) * 2));
+    margin: -5rem auto 0;
+    padding: 1.75rem 0;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  }
+
+  /* .header-card h1 {
+    font-size: clamp(1.2rem, 1.375rem, 2rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .breadcrumb {
+    font-size: clamp(0.95rem, 1.125rem, 1.75rem);
+  }
+
+  .gallery-card__title {
+    font-size: clamp(0.95rem, 1.85rem, 1.75rem);
+  } */
+
+  .gallery-card__img-wrap {
+    height: 228px;
+  }
+}
+
+/* ==========================================================================
+   HOVER STATES (Desktop)
+   ========================================================================== */
+@media (hover: hover) and (min-width: 768px) {
+  .btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+  }
+
+  .breadcrumb a:hover {
+    color: #0721A0;
+  }
+
+  .gallery-card:hover .gallery-card__overlay {
+    opacity: 1;
+  }
+
+  .gallery-card:hover .gallery-card__img {
+    transform: scale(1.05);
+  }
+
+  .gallery-card:hover .plus-icon {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.gallery-card__link {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .gallery-grid {
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .gallery-card__title {
+    font-size: clamp(1.1rem, 1.5rem, 2rem);
+    margin-bottom: 0.7rem;
+  }
+
+  .gallery-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: clamp(1rem, 1.25rem, 2rem);
+    color: #0721A0;
+    /* font-weight: 500; */
+    text-decoration: none;
+    margin-top: 0.75rem;
+    transition: color 0.3s ease;
+  }
+
+  .gallery-card__link-arrow {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .gallery-card__link-text {
+    color: #0721A0;
+    /* font-weight: 500; */
+  }
+
+  /* Disable hover overlay on mobile */
+  .gallery-card__overlay {
+    display: none !important;
+  }
+
+  .gallery-card__img {
+    transform: none !important;
+  }
+
+  .header-card h1{
+    font-size: clamp(0.75rem,1.375rem,2rem);
+  }
+
+  .breadcrumb{
+        font-size: clamp(0.75rem,1.125rem,2rem);
+  }
+}

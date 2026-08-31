@@ -1,0 +1,242 @@
+/* WHY STUDY SECTION STYLES */
+.whySection {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(1rem, 4vh, 3.5rem) var(--global-padding-x) clamp(1rem, 10vh, 3.5rem);
+  box-sizing: border-box;
+}
+
+.whyHeader {
+  text-align: center;
+  /* max-width: 1000px; */
+  margin: 0 auto clamp(2.5rem, 5vh, 4rem) auto;
+}
+
+.whyTitle {
+  font-size: clamp(1rem, 2rem, 3.2rem);
+  font-weight: 500;
+  color: #373737;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.highlightBlue {
+  color: #0721A0;
+  font-weight: 600;
+}
+
+.whySubtitle {
+  font-size: clamp(0.95rem, 1.5rem, 1.6rem);
+  color: #6A6A6A;
+  line-height: 1.6;
+  max-width: 50rem;
+  margin: 0 auto 4rem;
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 5rem;
+  align-items: stretch;
+}
+
+/* LEFT COLUMN PICTURE CARD */
+.whyImageCol {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.buildingImageCard {
+  background: #E4E8FB;
+  border-radius: 28px;
+  padding: 10px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+  border: 2px solid #E4E8FB;
+  backdrop-filter: blur(8px);
+  width: 30.563rem;
+  max-width: 100%;
+}
+
+.buildingImg {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 549 / 629;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
+/* RIGHT COLUMN FEATURES LIST */
+.whyFeaturesCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.75rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  background: transparent;
+  padding: 0.25rem 0;
+  border: none;
+  cursor: default;
+}
+
+.featureIconBox {
+  width: 82px;
+  height: 82px;
+  background: #F1FAFE;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 4px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.featureIconSvg {
+  width: 36px;
+  height: 36px;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+}
+
+.featureText {
+  display: flex;
+  flex-direction: column;
+}
+
+.featureTitle {
+  font-size: clamp(1.1rem, 1.5rem, 1.65rem);
+  font-weight: 400;
+  color: #3B3B3B;
+  margin: 0 0 0.35rem 0;
+  line-height: 1.3;
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  padding-bottom: 2px;
+}
+
+.featureTitle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #C1A400;
+  border-radius: 2px;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.featureDesc {
+  font-size: clamp(0.9rem, 1.125rem, 1.25rem);
+  color: #6A6A6A;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* HOVER INTERACTIONS */
+@media (hover: hover) {
+  .featureItem:hover .featureIconBox {
+    background: #001999;
+    box-shadow: 0 8px 20px rgba(0, 25, 153, 0.22);
+  }
+
+  .featureItem:hover .featureIconSvg {
+    filter: brightness(0) invert(1);
+    transform: scale(1.18);
+  }
+
+  .featureItem:hover .featureTitle::after {
+    width: 50px;
+  }
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 1024px) {
+  .whyGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .buildingImageCard {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .buildingImg {
+    aspect-ratio: 4 / 3.4;
+  }
+}
+
+@media (max-width: 640px) {
+
+  .whyTitle {
+    font-size: clamp(1rem, 1.375rem, 3.2rem);
+  }
+
+  .whySubtitle {
+    font-size: clamp(1rem, 1.125rem, 3.2rem);
+  }
+
+  .buildingImageCard {
+    width: 100%;
+    border-radius: 20px;
+    min-height: 456px;
+  }
+
+  .buildingImg {
+    border-radius: 14px;
+  }
+
+  .whyFeaturesCol {
+    gap: 2.25rem;
+  }
+
+  .featureItem {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .featureIconBox {
+    width: 82px;
+    height: 82px;
+    border-radius: 16px;
+    margin: 0 auto;
+  }
+
+  .featureIconSvg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .featureText {
+    align-items: center;
+    text-align: center;
+  }
+
+  .featureTitle {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.35rem;
+    font-size: clamp(0.75rem,1.5rem,2rem);
+  }
+
+  .featureTitle::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .featureDesc {
+    text-align: center;
+    font-size: clamp(0.75rem, 1.125rem, 2rem);
+  }
+}

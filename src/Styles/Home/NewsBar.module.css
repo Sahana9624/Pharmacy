@@ -1,0 +1,128 @@
+/* ---------------------------------------------------------------------- */
+/* NEWS BAR                                                                */
+/* ---------------------------------------------------------------------- */
+
+.newsbar {
+  background: #E8EAFA;
+  height: auto;
+  min-height: clamp(3rem, 8vh, 5rem);
+  padding: clamp(0.5rem, 1.5vh, 1.5rem) 0;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.newsbar__inner {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: var(--global-padding-x);
+  padding-right: var(--global-padding-x);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.newsbar__badge-container {
+  z-index: 10;
+  background: transparent;
+  padding-right: clamp(1rem, 5vw, 5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.newsbar__badge {
+  background: #122056;
+  color: white;
+  font-weight: 400;
+  font-size: clamp(14px, 1.5vw, 20px);
+  padding: clamp(0.4rem, 1vh, 0.75rem) clamp(0.75rem, 2vw, 1.25rem);
+  border-radius: 8px;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.newsbar__marquee {
+  display: flex;
+  overflow: hidden;
+  flex: 1;
+}
+
+.newsbar__track {
+  display: flex;
+  flex-shrink: 0;
+  gap: 8rem;
+  padding-right: 8rem;
+  animation: newsScrollLeft 25s linear infinite;
+}
+
+@keyframes newsScrollLeft {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.newsbar__text {
+  color: #122056;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 400;
+  margin: 0;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+@media (max-width: 500px) {
+  .newsbar {
+    max-height: none;
+    min-height: 3rem;
+  }
+
+  .newsbar__text {
+    font-size: clamp(0.5rem, 1rem, 2rem);
+  }
+
+  .newsbar__badge-container {
+    z-index: 10;
+    background: transparent;
+    padding-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+  }
+
+  .newsbar__badge {
+    background: #122056;
+    color: white;
+    font-weight: 500;
+    font-size: clamp(0.5rem, 1rem, 2rem);
+    padding: clamp(0.25rem, 1vh, 0.5rem) clamp(0.5rem, 2vw, 0.75rem);
+    border-radius: 8px;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+}
+
+@media (hover: hover) {
+  /* .newsbar__badge:hover {
+    background: var(--color-bg-light);
+  } */
+
+  .newsbar__marquee:hover .newsbar__track {
+    animation-play-state: paused;
+  }
+
+  .newsbar__text:hover {
+    text-decoration: none;
+    opacity: 0.9;
+  }
+}

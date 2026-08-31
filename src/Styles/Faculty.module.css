@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+.facultyPage {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* ==========================================================================
+   1. HERO SECTION (WITH FLOATING OVERLAPPING WHITE CARD MATCHING REFERRAL)
+   ========================================================================== */
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: clamp(18rem, 27.5rem, 32.5rem);
+  margin-bottom: 0;
+}
+
+.heroBgWrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heroBg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 32, 86, 0.2);
+  z-index: 1;
+}
+
+.heroCardContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(35%);
+  z-index: 10;
+  width: 100%;
+  /* max-width: 1320px; */
+  margin: 0 auto;
+  padding-left: var(--global-padding-x);
+  padding-right: var(--global-padding-x);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.heroCard {
+  background: #ffffff;
+  border-radius: 20px;
+  height: clamp(7.5rem, 12vh, 9.25rem);
+  padding: clamp(0.75rem, 5.5vw, 5.25rem) clamp(1.5rem, 4vw, 3rem);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  text-align: center;
+  max-width: 100%;
+  width: 100%;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroTitle {
+  font-size: clamp(1.6rem, 1.75rem, 2.5rem);
+  font-weight: 500;
+  color: #0721A0;
+  margin: 0 0 1.55rem 0;
+  line-height: 1.1;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-size: clamp(0.9rem, 1.25rem, 1.85rem);
+  color: #6C6C6C;
+  font-weight: 400;
+}
+
+.breadcrumb a {
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumbArrow {
+  width: 7px;
+  height: 12px;
+  object-fit: contain;
+  margin: 0 4px;
+}
+
+.breadcrumb a:hover {
+  color: #001999;
+}
+
+.breadcrumbSeparator {
+  color: #94a3b8;
+}
+
+.breadcrumbCurrent {
+  color: #64748b;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   2. FACULTY CONTENT SECTION
+   ========================================================================== */
+.facultyContentSection {
+  width: 100%;
+  padding-top: clamp(3.5rem, 18vh, 8rem);
+  padding-bottom: clamp(3.5rem, 7vh, 6rem);
+  background-color: #ffffff;
+}
+
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding-left: var(--global-padding-x, clamp(1rem, 4vw, 2.5rem));
+  padding-right: var(--global-padding-x, clamp(1rem, 4vw, 2.5rem));
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 5vh, 4.5rem);
+}
+
+/* CATEGORY BLOCK */
+.categoryBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.categoryTitle {
+  font-size: clamp(1.25rem, 1.5rem, 2.6rem);
+  font-weight: 500;
+  color: #3B3B3B;
+  text-align: center;
+  margin: 0 0 clamp(1.5rem, 8.5vh, 5.5rem) 0;
+  position: relative;
+}
+
+/* SINGLE CARD (PRINCIPAL & CENTERED ITEMS) */
+.singleCardWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.singleCardWrapper .facultyCard {
+  max-width: clamp(15rem, 24vw, 21.125rem);
+  width: 100%;
+}
+
+/* AUTO-ADJUSTABLE GRID FOR FACULTY MEMBERS */
+.gridThree {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, clamp(14rem, 20vw, 19.125rem)), 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2.25rem);
+  justify-content: center;
+  width: 100%;
+}
+
+/* FACULTY CARD DESIGN */
+.facultyCard {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  max-width: clamp(13.5rem, 20vw, 19.125rem);
+  margin: 0 auto;
+  box-sizing: border-box;
+  gap: clamp(0.75rem, 1.2vw, 1rem);
+}
+
+/* SEPARATE PHOTO CONTAINER CARD */
+.imgBox {
+  width: 100%;
+  max-width: clamp(13.5rem, 20vw, 19.125rem);
+  max-height: clamp(17rem, 25vw, 23.938rem);
+  aspect-ratio: 19.125 / 23.938;
+  background: #ffffff;
+  border-radius: 1.25rem;
+  padding: 0.625rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 0.625rem 1.75rem rgba(18, 32, 86, 0.05);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin: 0 auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.imgBox:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 1rem 2.25rem rgba(18, 32, 86, 0.12);
+}
+
+.facultyImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 0.875rem;
+  display: block;
+}
+
+/* SEPARATE CARD INFO BELOW PHOTO CONTAINER */
+.cardInfo {
+  width: 100%;
+  text-align: center;
+  padding-top: 0;
+  padding-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: flex-start;
+  gap: 0.25rem;
+}
+
+.memberName {
+  font-size: clamp(1rem, 1.25rem, 1.5rem);
+  font-weight: 600;
+  color: #3B3B3B;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.memberRole {
+  font-size: clamp(0.85rem, 1.125rem, 5.95rem);
+  font-weight: 400;
+  color: #6A6A6A;
+  margin: 0;
+}
+
+.memberDept {
+  font-size: clamp(0.85rem, 1.125rem, 5.95rem);
+  font-weight: 400;
+  color: #6A6A6A;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 900px) {
+  .gridThree {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  }
+}
+
+@media (max-width: 580px) {
+  .heroSection {
+  height: clamp(18rem, 50vh, 32.5rem);
+  }
+
+  .gridThree {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCard {
+    padding: 1.313rem 0;
+    /* margin-top: 3rem; */
+  }
+
+  .heroTitle{
+    font-size: clamp(0.75rem,1.375rem,2rem);
+  }
+
+  .breadcrumb{
+    font-size: clamp(0.75rem,1.125rem,2rem);
+  }
+
+  .facultyContentSection {
+    padding-top: 7rem;
+  }
+
+  .categoryTitle {
+    margin-bottom: 2rem;
+    font-size: clamp(0.75rem,1.375rem,2rem);
+  }
+
+  .memberName {
+    font-size: clamp(0.75rem,1.25rem,2rem);
+  }
+
+  .memberRole {
+        font-size: clamp(0.75rem,1.125rem,2rem);
+  }
+  
+  .singleCardWrapper .facultyCard,
+  .facultyCard {
+    max-width: 100%;
+  }
+}

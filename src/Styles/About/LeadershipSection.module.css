@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+.leadershipSection {
+  background: #F8FCFE;
+  padding: var(--global-padding-y) 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.leadershipHeader {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-left: var(--global-padding-x);
+  padding-right: var(--global-padding-x);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: clamp(1.5rem, 2rem, 2.75rem);
+  font-weight: 500;
+  color: #373737;
+  text-align: center;
+  margin: 0 0 0.75rem;
+}
+
+.sectionSubtitle {
+  text-align: center;
+  color: #6C6C6C;
+  font-size: clamp(0.95rem, 1.5rem, 1.35rem);
+  font-weight: 400;
+  max-width: 48rem;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.leaderCardWrapper {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-left: var(--global-padding-x);
+  padding-right: var(--global-padding-x);
+  box-sizing: border-box;
+}
+
+.leaderCard {
+  width: 100%;
+  margin: clamp(2rem, 5vw, 3rem) auto 0;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(11, 25, 83, 0.06);
+  border-radius: 20px;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-sizing: border-box;
+}
+
+.leaderCardReverse {
+  flex-direction: column-reverse;
+}
+
+.leaderCardPhotoWrap {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #122056;
+  width: clamp(12.5rem, 50vw, 21.625rem);
+  height: clamp(12.5rem, 50vw, 26.125rem);
+  border-radius: 24px;
+}
+
+.leaderCardPhoto {
+  width: clamp(12.5rem, 50vw, 19.375rem);
+  height: clamp(12.5rem, 50vw, 23.875rem);
+  object-fit: cover;
+  margin: auto;
+  border-radius: 12px;
+}
+
+.leaderCardContent h3 {
+  color: #122056;
+  font-size: clamp(1.313rem, 2.083vw, 1.875rem);
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+}
+
+.leaderCardContent p {
+  color: #6C6C6C;
+  line-height: 1.6;
+  font-size: clamp(0.875rem, 1.389vw, 1.25rem);
+  font-weight: 400;
+  margin: 0 0 1rem;
+}
+
+.leaderCardContent span {
+  color:#373737;
+}
+
+.leaderCardName {
+  color: #122056 !important;
+  font-weight: 600 !important;
+  font-size: clamp(1.1rem, 1.5rem, 1.75rem) !important;
+  margin: 0 0 0.25rem 0 !important;
+  line-height: 1.3 !important;
+}
+
+.leaderCardRole {
+  color: #122056 !important;
+  font-size: clamp(0.9rem, 1.25rem, 1.35rem) !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+  line-height: 1.3 !important;
+}
+
+.fadeUp {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fadeUpDelay {
+  transition-delay: 0.3s, 0.3s;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .leaderCard {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+
+    /* .sectionTitle {
+    font-size: clamp(0.75rem,1.875rem,3.5rem);
+    max-width: 372px;
+    text-align: center;
+  } */
+
+  .leaderCardPhotoWrap {
+    flex: 0 0 auto;
+  }
+
+  .leaderCardReverse {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .leadershipHeader {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .sectionTitle {
+    font-size: clamp(0.75rem,1.375rem,3.5rem);
+    text-align: center;
+  }
+
+  .sectionSubtitle {
+    font-size: clamp(0.75rem,1.125rem,3.5rem);
+    max-width: 21.875rem;
+  }
+
+  .leaderCard {
+    flex-direction: column !important;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-top: 2rem;
+    gap: 0;
+  }
+
+  .leaderCardReverse {
+    flex-direction: column-reverse !important;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-top: 2rem;
+    gap: 0;
+  }
+
+  .leaderCardPhotoWrap {
+    background: #0e1a46;
+    width: 100%;
+    height: auto;
+    max-height: clamp(240px, 45dvh, 438px);
+    aspect-ratio: 1 / 1.15;
+    border-radius: 24px;
+    padding: 12px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .leaderCardPhoto {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+    margin: 0;
+  }
+
+  .leaderCardContent {
+    background: transparent;
+    border-radius: 0;
+    margin-top: 1.25rem;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .leaderCardContent h3 {
+    font-size: clamp(1.15rem, 1.375rem, 1.85rem);
+    margin: 0 0 0.85rem 0;
+    line-height: 1.35;
+  }
+
+  .leaderCardContent p {
+    font-size: clamp(0.875rem, 1.125rem, 3.975rem);
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+  }
+
+  .leaderCardName, .leaderCardRole  {
+    font-size: clamp(0.875rem, 1.25rem, 3.975rem) !important;
+    margin: 0 0 0.2rem 0 !important;
+  }
+
+  .fadeUp {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

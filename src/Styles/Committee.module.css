@@ -1,0 +1,458 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+.committeePage {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* ==========================================================================
+   1. HERO SECTION (WITH CENTERED FLOATING WHITE CARD)
+   ========================================================================== */
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: clamp(18rem, 27.5rem, 32.5rem);
+  margin-bottom: 0;
+}
+
+.heroBgWrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heroBg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 32, 86, 0.2);
+  z-index: 1;
+}
+
+.heroCardContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(35%);
+  z-index: 10;
+  width: 100%;
+  /* max-width: 1320px; */
+  margin: 0 auto;
+  padding-left: var(--global-padding-x);
+  padding-right: var(--global-padding-x);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.heroCard {
+  background: #ffffff;
+  border-radius: 20px;
+  height: clamp(7.5rem, 12vh, 9.25rem);
+  padding: clamp(0.75rem, 5.5vw, 5.25rem) clamp(1.5rem, 4vw, 3rem);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  text-align: center;
+  max-width: 100%;
+  width: 100%;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroTitle {
+  font-size: clamp(1.6rem, 1.75rem, 2.5rem);
+  font-weight: 500;
+  color: #0721A0;
+  margin: 0 0 1.55rem 0;
+  line-height: 1.1;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-size: clamp(0.9rem, 1.25rem, 1.85rem);
+  color: #6C6C6C;
+  font-weight: 400;
+}
+
+.breadcrumb a {
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumbArrow {
+  width: 7px;
+  height: 12px;
+  object-fit: contain;
+  margin: 0 4px;
+}
+
+.breadcrumb a:hover {
+  color: #001999;
+}
+
+.breadcrumbSeparator {
+  color: #94a3b8;
+}
+
+.breadcrumbCurrent {
+  color: #64748b;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   2. CONTENT SECTION
+   ========================================================================== */
+.contentSection {
+  width: 100%;
+  padding-top: clamp(3.5rem, 18vh, 8rem);
+  padding-bottom: clamp(3.5rem, 7vh, 6rem);
+  background-color: #ffffff;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding-left: var(--global-padding-x);
+  padding-right: var(--global-padding-x);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 5vh, 4rem);
+}
+
+/* INTRO BLOCK */
+.introBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.3rem, 1.75rem, 2.75rem);
+  font-weight: 400;
+  color: #373737;
+  line-height: 1.3;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.introParagraph {
+  font-size: clamp(0.95rem, 1.5rem, 1.8rem);
+  font-weight: 400;
+  color: #6C6C6C;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* 4 SEPARATE VERTICAL COLUMN CARDS MATCHING REFERRAL IMAGE EXACTLY */
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  padding: 4px 0;
+}
+
+.columnsGrid {
+  display: grid;
+  grid-template-columns: 0.35fr 1.25fr 1.25fr 1.1fr;
+  gap: 6px;
+  width: 100%;
+  min-width: 820px;
+  box-sizing: border-box;
+}
+
+.columnCard {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #D9D9D9;
+  box-shadow: 0 6px 20px rgba(11, 25, 83, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.columnHeader {
+  background: #0A1C74;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: clamp(0.95rem, 1.25rem, 2rem);
+  padding: 2.25rem 2.313rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: left;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.columnHeaderCenter {
+  justify-content: center;
+  text-align: center;
+}
+
+.columnCell {
+  padding: 2.25rem 2.313rem;
+  border-bottom: 2px solid #D9D9D9;
+  color: #000000;
+  font-size: clamp(0.92rem, 1.25rem, 2.05rem);
+  font-weight: 400;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+.columnCell:last-child {
+  border-bottom: none;
+}
+
+.columnCellCenter {
+  justify-content: center;
+  text-align: center;
+  font-weight: 400;
+  color: #000000;
+}
+
+/* OBJECTIVES BLOCK */
+.objectivesBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.objectivesTitle {
+  font-size: clamp(1.2rem, 1.75rem, 1.85rem);
+  font-weight: 400;
+  color: #373737;
+  margin: 0;
+}
+
+.objectivesList {
+  margin: 0;
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  /* gap: 0.75rem; */
+}
+
+.objectivesList li {
+  font-size: clamp(0.95rem, 1.5rem, 1.75rem);
+  color: #6C6C6C;
+  /* line-height: 1.65; */
+}
+
+/* EMAIL BLOCK */
+.emailBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.emailLabel {
+  font-size: clamp(1.2rem, 1.75rem, 1.85rem);
+  font-weight: 400;
+  color: #373737;
+  margin: 0;
+}
+
+.emailLink {
+  font-size: clamp(0.95rem, 1.5rem, 1.75rem);
+  color: #6C6C6C;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.emailLink:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* BOTTOM GUIDANCE CTA CARD
+.guidanceCtaCard {
+  background: #eef2fb;
+  border-radius: 24px;
+  padding: clamp(2rem, 3.5vw, 3rem);
+  display: grid;
+  grid-template-columns: clamp(200px, 24vw, 300px) 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+  box-shadow: 0 12px 36px rgba(18, 32, 86, 0.05);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.guidanceImgWrapper {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.guidanceImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.guidanceContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.applyNowTag {
+  color: #2563eb;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.guidanceHeading {
+  font-size: clamp(1.4rem, 2.2vw, 2.1rem);
+  font-weight: 700;
+  color: #122056;
+  line-height: 1.25;
+  margin: 0 0 0.85rem 0;
+}
+
+.guidanceSubtext {
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  color: #475569;
+  line-height: 1.55;
+  margin: 0 0 1.5rem 0;
+  max-width: 650px;
+}
+
+.enquireBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #0b184c;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1.75rem 0.75rem 0.75rem;
+  font-size: clamp(0.95rem, 1.05vw, 1.1rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25 ease, transform 0.2s ease;
+  box-shadow: 0 8px 20px rgba(11, 24, 76, 0.2);
+}
+
+.enquireBtn:hover {
+  background: #16275f;
+  transform: translateY(-2px);
+}
+
+.btnIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+} */
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 820px) {
+  .guidanceCtaCard {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .guidanceContent {
+    align-items: center;
+  }
+
+  .guidanceImgWrapper {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .heroSection {
+    height: 50vh;
+  }
+
+  .heroTitle {
+    font-size: clamp(0.75rem, 1.375rem, 2rem);
+  }
+
+  .breadcrumb {
+    font-size: clamp(0.75rem, 1.25rem, 2rem);
+  }
+
+  .contentSection {
+    padding-top: 5rem;
+  }
+
+  .sectionTitle {
+    font-size: clamp(0.85rem, 1.375rem, 2rem);
+  }
+
+  .introParagraph {
+    font-size: clamp(0.85rem, 1.25rem, 2rem);
+  }
+
+  .columnsGrid {
+    min-width: 1050px;
+    grid-template-columns: 0.45fr 1.35fr 1.35fr 1.25fr;
+  }
+
+  .columnHeader {
+    font-size: clamp(0.85rem, 1.5rem, 2rem);
+    padding: 1rem 1.25rem;
+  }
+
+  .columnCell {
+    font-size: clamp(0.75rem, 1.4rem, 2rem);
+    padding: 1rem 1.25rem;
+    height: auto;
+    min-height: 62px;
+  }
+
+  .objectivesTitle {
+    font-size: clamp(0.85rem, 1.355rem, 2rem);
+  }
+
+  .objectivesList li{
+    font-size: clamp(0.75rem, 1.25rem, 2rem);
+  }
+
+  .emailLabel {
+    font-size: clamp(0.85rem, 1.375rem, 2rem);
+  }
+
+  .emailLink {
+    font-size: clamp(0.75rem, 1.25rem, 2rem);
+  }
+
+}

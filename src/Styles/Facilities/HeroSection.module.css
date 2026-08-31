@@ -1,0 +1,622 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+.heroSection {
+  position: relative;
+  width: 100%;
+  min-height: 82vh;
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(82.56deg, #FFFFFF 15%, rgba(255, 255, 255, 0.4) 55%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: clamp(1rem, 2vh, 2.5rem) var(--global-padding-x, 1.5rem);
+  box-sizing: border-box;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+  width: 100%;
+}
+
+/* LEFT CONTENT */
+.heroText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heroTag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(0deg, #FFFFFF 0%, #E4E7F3 100%);
+  color: #0721A0;
+  font-size: clamp(0.85rem, 1.125rem, 2rem);
+  font-weight: 500;
+  padding: 0.45rem 1.35rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+  width: 279px;
+  box-shadow: 0 4px 12px rgba(18, 32, 86, 0.06);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.heroTagTextWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+.heroTagText {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  white-space: nowrap;
+  color: #0721A0;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.heroTagTextEntering {
+  animation: moveUpFromBottom 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.heroTagTextExiting {
+  animation: moveDownToBottom 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes moveUpFromBottom {
+  0% {
+    transform: translateY(28px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes moveDownToBottom {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(28px);
+    opacity: 0;
+  }
+}
+
+.heroText h1 {
+  font-size: clamp(2.2rem, 2.4rem, 4rem);
+  font-weight: 500;
+  color: #122056;
+  line-height: 1.15;
+  margin: 0 0 1.25rem 0;
+}
+
+.heroText p {
+  font-size: clamp(1rem, 1.5rem, 1.45rem);
+  color: #122056;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+  max-width: 580px;
+}
+
+/* CTA BUTTON GROUP */
+.ctaGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+  border-radius: 2.25rem;
+  font-weight: 400;
+  font-size: clamp(0.9rem, 1.15rem, 1.25rem);
+  font-family: inherit;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: inset 0 0 0 0px white;
+  transition: transform 0.2s ease, opacity 0.2s ease, color 0.5s ease, box-shadow 0.5s ease;
+  max-height: 3.3125rem;
+}
+
+.btnIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.btnText {
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+  font-weight: 400;
+  transition: color 0.4s ease;
+}
+
+.arrowIcon {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  background-color: #0721A0;
+  -webkit-mask: url("../../assets/icons/arrow-up-right.svg") no-repeat center / contain;
+  mask: url("../../assets/icons/arrow-up-right.svg") no-repeat center / contain;
+  transform-origin: 50% 50%;
+  transition: transform 0.3s ease, background-color 0.4s ease;
+  will-change: transform;
+}
+
+.btnPrimary::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: white;
+  border-radius: 2.5rem;
+  transform: translateY(-50%);
+  transition: width 0.4s ease-out, left 0.4s ease-out, height 0.6s ease-out;
+  z-index: 0;
+}
+
+.btnPrimary {
+  background-color: #0721A0;
+  color: white;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 0.25rem 1rem rgba(11, 25, 83, 0.25);
+}
+
+.btnPrimary .btnIcon {
+  background: white;
+  color: #0721A0;
+}
+
+@media (hover: hover) {
+  .btn:hover {
+    opacity: 0.95;
+  }
+
+  .btnPrimary:hover::before {
+    left: -0.625rem;
+    width: calc(100% + 1.25rem);
+    height: calc(100% + 1.25rem);
+    transition: width 0.4s ease-out, left 0.4s ease-out, height 0.6s ease-out;
+  }
+
+  .btnPrimary:hover {
+    color: #0721A0;
+    opacity: 1;
+    border-color: white;
+    box-shadow: 0 0.25rem 1rem rgba(11, 25, 83, 0.2);
+    transition: color 0.7s ease-out, box-shadow 0.7s ease-out, border-color 0.7s ease-out;
+  }
+
+  .btnPrimary:hover .btnText {
+    color: #0721A0;
+  }
+
+  .btnPrimary:hover .btnIcon {
+    background: #0721A0;
+    color: white;
+    transition: background-color 0.4s ease-out, color 0.4s ease-out;
+  }
+
+  .btnPrimary:hover .arrowIcon {
+    transform: rotate(45deg);
+    background-color: #ffffff;
+  }
+}
+
+/* RIGHT PICTURE CARD CONTAINER WITH ROTATING BADGE */
+.heroImageWrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.heroImageCard {
+  position: relative;
+  width: 100%;
+  max-width: clamp(450px, 34vw, 590px);
+  background: #FFFFFF;
+  border-radius: 28px;
+  padding: 10px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  border: 2px solid 10.3px solid #FFFFFF;
+  backdrop-filter: blur(8px);
+  margin: 0;
+}
+
+.heroImg {
+  width: 100%;
+  height: clamp(370px, 63vh, 520px);
+  max-height: 520px;
+  object-fit: cover;
+  border-radius: 20px;
+  object-position: center 50%;
+  display: block;
+}
+
+/* ROTATING BADGE MECHANISM */
+.heroBadge {
+  position: absolute;
+  left: clamp(-55px, -5vw, -35px);
+  bottom: clamp(-5px, -1vh, 5px);
+  width: clamp(150px, 22vh, 194px);
+  height: clamp(150px, 22vh, 194px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 10;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(11, 25, 83, 0.15);
+  cursor: pointer;
+}
+
+.heroBadgeText {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: rotateBadgeText 35s linear infinite;
+  -webkit-animation: rotateBadgeText 35s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.heroBadgeText img {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}
+
+@media (hover: hover) and (min-width: 1024px) {
+  .heroBadge:hover .heroBadgeText {
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+  }
+}
+
+@keyframes rotateBadgeText {
+  0% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.heroBadgeCenter {
+  width: clamp(78px, 11vh, 102px);
+  height: clamp(78px, 11vh, 102px);
+  background: #E1ECF7;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.heroBadgeCenter img {
+  width: 45%;
+  height: 45%;
+  object-fit: contain;
+}
+
+/* SCREEN HEIGHT AUTO-ADJUSTMENTS (SMALL SCREEN SCALES) */
+@media (max-height: 800px) and (min-width: 1024px) {
+  .heroSection {
+    min-height: 78vh;
+    padding: 1.5rem 0;
+  }
+
+  .heroContainer {
+    padding: clamp(0.75rem, 1.8vh, 2rem) var(--global-padding-x, 1.5rem);
+  }
+
+  .heroImg {
+    height: clamp(340px, 58vh, 480px);
+    max-height: 480px;
+  }
+
+  .heroBadge {
+    left: clamp(-45px, -4.5vw, -30px);
+    bottom: 0;
+    width: clamp(135px, 19vh, 175px);
+    height: clamp(135px, 19vh, 175px);
+  }
+
+  .heroBadgeCenter {
+    width: clamp(70px, 9.5vh, 92px);
+    height: clamp(70px, 9.5vh, 92px);
+  }
+}
+
+@media (max-height: 680px) and (min-width: 1024px) {
+  .heroSection {
+    min-height: 74vh;
+  }
+
+  .heroContainer {
+    padding: clamp(0.75rem, 1.5vh, 1.25rem) var(--global-padding-x);
+  }
+
+  .heroImg {
+    height: clamp(320px, 52vh, 420px);
+    max-height: 487.77px;
+  }
+
+  .heroBadge {
+    left: clamp(-40px, -4vw, -25px);
+    bottom: 0;
+    width: clamp(130px, 18vh, 155px);
+    height: clamp(130px, 18vh, 155px);
+  }
+
+  .heroBadgeCenter {
+    width: clamp(68px, 9vh, 82px);
+    height: clamp(68px, 9vh, 82px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .heroSection {
+    position: relative;
+    width: 100%;
+    height: calc(100svh - 5.75rem);
+    max-height: calc(100svh - 5.75rem);
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: clamp(1rem, 2.5vh, 2rem) 0 clamp(0.25rem, 1vh, 0.75rem) 0;
+    box-sizing: border-box;
+  }
+
+  .heroTag {
+    font-size: clamp(0.75rem, 1rem, 1.25rem);
+    margin-bottom: clamp(0.75rem, 2.5vh, 1.25rem);
+  }
+
+  .heroBg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 65%;
+    z-index: 0;
+  }
+
+  .heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(146.46deg, #FFFFFF 24.28%, rgba(255, 255, 255, 0) 87.93%);
+    pointer-events: none;
+    z-index: 1;
+    display: block;
+  }
+
+  .heroContainer {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 var(--global-padding-x, 1.25rem);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 100%;
+    background: transparent;
+  }
+
+  .heroGrid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    gap: 0;
+  }
+
+  .heroText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: clamp(0.5rem, 1.5vh, 1.25rem) 0 0 0;
+    margin: 0;
+  }
+
+  .heroText h1 {
+    font-size: clamp(1.1rem, 3vh, 1.55rem);
+    line-height: 1.22;
+    margin: 0 auto clamp(0.2rem, 0.8vh, 0.4rem) auto;
+    text-align: center;
+    max-width: min(100%, 360px);
+  }
+
+  .heroText p {
+    font-size: clamp(0.85rem, 2vh, 1.05rem);
+    line-height: 1.35;
+    margin: 0 auto clamp(0.35rem, 1.2vh, 0.65rem) auto;
+    text-align: center;
+    max-width: min(100%, 360px);
+  }
+
+  .heroImageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 clamp(10px, 3vw, 18px);
+    box-sizing: border-box;
+    overflow: visible;
+  }
+
+  .heroImageCard {
+    position: relative;
+    width: min(96%, clamp(210px, 36vh, 320px));
+    height: auto;
+    max-height: clamp(180px, 35vh, 310px);
+    aspect-ratio: 282.26 / 275.94;
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 0;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08);
+    border: 5px solid #FFFFFF;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+  .heroImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    border-radius: 19px;
+    display: block;
+  }
+
+  .heroBadge {
+    position: absolute;
+    left: clamp(-42px, -14vw, -25px);
+    bottom: clamp(-12px, -1.2vh, -6px);
+    width: clamp(85px, 25vw, 109.75px);
+    height: clamp(85px, 25vw, 109.75px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 54.88px;
+    z-index: 10;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(11, 25, 83, 0.18);
+    pointer-events: none !important;
+  }
+
+  .heroBadgeText {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    animation: rotateBadgeText 35s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none !important;
+  }
+
+  .heroBadge:hover .heroBadgeText {
+    animation-play-state: running !important;
+    -webkit-animation-play-state: running !important;
+  }
+
+  .heroBadgeCenter {
+    width: clamp(42px, 12vw, 54.87px);
+    height: clamp(42px, 12vw, 54.87px);
+    background: #E1ECF7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .heroBadgeCenter img {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+  }
+
+  .btn {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    padding: clamp(0.45rem, 1.2vh, 0.75rem) clamp(1.25rem, 3.5vw, 1.75rem) clamp(0.45rem, 1.2vh, 0.75rem) clamp(0.45rem, 1.2vh, 0.75rem);
+    max-height: clamp(2.85rem, 7vh, 3.5rem);
+  }
+
+  .btnIcon {
+    width: clamp(1.95rem, 4.8vw, 2.35rem);
+    height: clamp(1.95rem, 4.8vw, 2.35rem);
+  }
+
+  .arrowIcon {
+    width: clamp(13px, 3.5vw, 17px);
+    height: clamp(13px, 3.5vw, 17px);
+  }
+}

@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+.page {
+  font-family: "Outfit", sans-serif;
+  color: #1a1a2e;
+}
+
+/* ---------------------------------------------------------------------- */
+/* PAGE HEADER                                                             */
+/* ---------------------------------------------------------------------- */
+
+.page-header {
+  background: linear-gradient(180deg, #ECF3F8 0%, #FFFFFF 100%);
+  padding: clamp(2rem, 5vw, 3.5rem) var(--global-padding-x);
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: clamp(28px, 3.5vw, 36px);
+  font-weight: 500;
+  color: #122056;
+  margin: 0 0 0.75rem;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 400;
+}
+
+.breadcrumb a {
+  color: #6c6c6c;
+  text-decoration: none;
+}
+
+.breadcrumbArrow {
+  width: 7px;
+  height: 12px;
+  object-fit: contain;
+  margin: 0 4px;
+}
+
+.breadcrumb span:last-child {
+  color: #122056;
+  font-weight: 400;
+}
+
+.breadcrumb span[aria-hidden] {
+  color: #5b5f73;
+}
+
+/* ---------------------------------------------------------------------- */
+/* CONTENT                                                                 */
+/* ---------------------------------------------------------------------- */
+
+.content {
+  width: 100%;
+  padding: clamp(2rem, 5vw, 4rem) var(--global-padding-x);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3rem);
+  box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------------------- */
+/* SECTION                                                                 */
+/* ---------------------------------------------------------------------- */
+
+.section h2 {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 500;
+  color: #122056;
+  margin: 0 0 1rem;
+}
+
+.section__title--highlight {
+  color: #03A849 !important;
+  font-weight: 400 !important;
+}
+
+.section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.section ul li {
+  position: relative;
+  padding-left: 1rem;
+  margin-left: 1.25rem;
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 400;
+  line-height: 1.75;
+  color: #6C6C6C;
+}
+
+.section ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #6C6C6C;
+  font-size: clamp(0.875rem, 1.389vw, 1.25rem);
+  line-height: 1.5;
+}
+
+.section ul li strong {
+  color: #3b3b3b;
+  font-weight: 400;
+}
+
+/* ---------------------------------------------------------------------- */
+/* RESPONSIVE                                                              */
+/* ---------------------------------------------------------------------- */
+
+@media (min-width: 1024px) {
+  .content {
+    padding-left: var(--global-padding-x);
+    padding-right: var(--global-padding-x);
+  }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 768px) {
+   .page-header h1 {
+    font-size: clamp(1rem, 1.5rem, 2rem);
+  }
+  
+  .breadcrumb {
+    font-size: clamp(0.9rem, 1.25rem, 1.5rem);
+  }
+  
+  .section h2 {
+    font-size: clamp(0.75rem, 1.5rem, 1.75rem);
+  }
+  
+  .section ul li , .section ul li::before {
+    font-size: clamp(0.9rem, 1.25rem, 1.9rem);
+  }
+}
+
+/* ==========================================================================
+   HOVER STATES (Desktop)
+   ========================================================================== */
+@media (hover: hover) {
+  .breadcrumb a:hover {
+    color: #122056;
+  }
+}

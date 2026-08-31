@@ -1,0 +1,234 @@
+/* CAMPUS LIFE SECTION STYLES */
+.campusSection {
+  background: linear-gradient(135deg, #0721A0 0%, #07154d 100%);
+  padding: clamp(1.5rem, 4vh, 3rem) 0 clamp(3.5rem, 4vh, 6rem);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* OUTER BLUE HEADER */
+.campusOuterHeader {
+  text-align: center;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto clamp(2.5rem, 5vh, 4rem) auto;
+  padding-left: var(--global-padding-x);
+  padding-right: var(--global-padding-x);
+  box-sizing: border-box;
+}
+
+.outerTitle {
+  font-size: clamp(1rem, 2rem, 3.2rem);
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+.outerSubtitle {
+  font-size: clamp(0.95rem, 1.5rem, 1.75rem);
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 1.6;
+  margin: 0 auto;
+}
+
+/* FLOATING WHITE CARD CONTAINER WRAPPER */
+.campusCardContainer {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: var(--global-padding-x);
+  padding-right: var(--global-padding-x);
+  box-sizing: border-box;
+}
+
+.campusWhiteCard {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: clamp(2rem, 2vw, 3.5rem) clamp(1.25rem, 3vw, 2.5rem);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-sizing: border-box;
+}
+
+/* FEST HEADER INSIDE CARD */
+.festHeader {
+  text-align: center;
+  margin-bottom: clamp(1.75rem, 3.5vh, 2.5rem);
+}
+
+.festTitle {
+  font-size: clamp(1.5rem, 2rem, 2.2rem);
+  font-weight: 500;
+  color: #0721A0;
+  margin: 0 0 0.8rem 0;
+  line-height: 1.25;
+
+}
+
+.festSubtitle {
+  font-size: clamp(0.95rem, 1.25rem, 1.35rem);
+  /* text-align: center; */
+  font-weight: 400;
+  max-width: 600px;
+  color: #6C6C6C;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ROW 1: STATIC PICTURE GRID (2 STATIC IMAGES WITH VARIED WIDTHS) */
+.staticGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  margin-bottom: clamp(1rem, 2vw, 1.75rem);
+}
+
+.staticImgItem {
+  width: 100%;
+  height:100%;
+  aspect-ratio: 16 / 9.5;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(7, 33, 160, 0.08);
+}
+
+.staticImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* ROW 2: CONTINUOUS SCROLLING MARQUEE TRACK WITH VARIED PICTURE WIDTHS */
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  position: relative;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.marqueeContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  animation: campusMarqueeScroll 35s linear infinite;
+}
+
+@keyframes campusMarqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marqueeItem {
+  flex-shrink: 0;
+  height: clamp(180px, 25vw, 280px);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(7, 33, 160, 0.08);
+}
+
+/* VARIED WIDTH SIZES FOR EACH PICTURE IN MARQUEE REEL */
+.marqueeItem:nth-child(3n + 1) {
+  width: clamp(280px, 38vw, 460px);
+}
+
+.marqueeItem:nth-child(3n + 2) {
+  width: clamp(210px, 26vw, 310px);
+}
+
+.marqueeItem:nth-child(3n + 3) {
+  width: clamp(250px, 33vw, 390px);
+}
+
+.marqueeImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+@media (hover: hover) {
+  .marqueeContainer:hover .marqueeTrack {
+    animation-play-state: paused;
+  }
+
+  .staticImgItem:hover .staticImg,
+  .marqueeItem:hover .marqueeImg {
+    transform: scale(1.03);
+  }
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 768px) {
+  .campusOuterHeader {
+    margin-bottom: 2rem;
+  }
+
+  .outerTitle {
+    font-size: clamp(1.35rem, 1.5rem, 2.2rem);
+  }
+
+  .outerSubtitle {
+    font-size: clamp(0.875rem, 1.125rem, 1.375rem);
+    max-width: 26rem;
+  }
+
+  .campusWhiteCard {
+    padding: 2rem 1.25rem;
+    border-radius: 28px;
+  }
+
+  .festHeader {
+    margin-bottom: 1.5rem;
+  }
+
+  .festTitle {
+    font-size: clamp(1.4rem, 1.75rem, 2rem);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .festSubtitle {
+    font-size: clamp(0.875rem, 1.125rem, 1.1rem);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .staticGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 0;
+  }
+
+  .staticImgItem {
+    width: 100%;
+    aspect-ratio: 4 / 3.4;
+    border-radius: 20px;
+  }
+
+  .staticImg {
+    border-radius: 20px;
+  }
+
+  .marqueeContainer {
+    display: none;
+  }
+}
