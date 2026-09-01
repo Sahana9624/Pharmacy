@@ -57,11 +57,19 @@ export default function FaqSection() {
                 <div
                   className={`${styles.faqItem} ${isOpen ? styles.faqItemOpen : ""}`}
                   key={item.q}
+                  onClick={() => toggleFaq(idx)}
                 >
-                  <button
+                  <div
                     className={`${styles.faqQuestionBtn} ${isOpen ? styles.faqQuestionBtnOpen : ""}`}
-                    onClick={() => toggleFaq(idx)}
+                    role="button"
+                    tabIndex={0}
                     aria-expanded={isOpen}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        toggleFaq(idx);
+                      }
+                    }}
                   >
                     <span>{item.q}</span>
                     <img
@@ -69,7 +77,7 @@ export default function FaqSection() {
                       alt=""
                       className={`${styles.faqChevron} ${isOpen ? styles.faqChevronRotate : ""}`}
                     />
-                  </button>
+                  </div>
                   <div className={`${styles.faqAnswerWrapper} ${isOpen ? styles.faqAnswerWrapperOpen : ""}`}>
                     <div className={styles.faqAnswerBox}>
                       <p>{item.a}</p>

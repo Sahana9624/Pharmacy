@@ -28,12 +28,58 @@ export default function Header() {
     setOpenMobileDropdown(null);
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (menuOpen && window.innerWidth <= 1023) {
+      const handlePreventMobileScroll = (e) => {
+        const navContainer = e.target.closest(`.${styles["mobile-nav-links-container"]}`);
+        if (navContainer) {
+          const { scrollTop, scrollHeight, clientHeight } = navContainer;
+          if (scrollHeight > clientHeight) {
+            const isScrollingUp = e.deltaY ? e.deltaY < 0 : false;
+            const isScrollingDown = e.deltaY ? e.deltaY > 0 : false;
+            const atTop = scrollTop <= 0;
+            const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
+            if ((isScrollingUp && !atTop) || (isScrollingDown && !atBottom) || !e.deltaY) {
+              return;
+            }
+          }
+        }
+        e.preventDefault();
+      };
 
+      const handleResize = () => {
+        if (window.innerWidth > 1023) {
+          setMenuOpen(false);
+        }
+      };
+
+      window.addEventListener("touchmove", handlePreventMobileScroll, { passive: false });
+      window.addEventListener("wheel", handlePreventMobileScroll, { passive: false });
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("touchmove", handlePreventMobileScroll);
+        window.removeEventListener("wheel", handlePreventMobileScroll);
+        window.removeEventListener("resize", handleResize);
+      };
+    }
+  }, [menuOpen]);
 
   const handleDropdownClick = () => {
     setMenuOpen(false);
-    setForceCloseMenu(true);
+    setForceCloseMenu(false);
     setOpenMobileDropdown(null);
+  };
+
+  const handleMenuToggle = () => {
+    setMenuOpen((prev) => {
+      const nextState = !prev;
+      if (!nextState) {
+        setOpenMobileDropdown(null);
+      }
+      setForceCloseMenu(false);
+      return nextState;
+    });
   };
 
   return (
@@ -68,7 +114,7 @@ export default function Header() {
                   Affiliated to The Tamilnadu Dr.M.G.R Medical University
                 </span>
                 <span className={`${styles.brand__affiliation} ${styles.mobileOnly}`}>
-                  Approved by AICTE & PCI, Affiliated to Osmania Univ.
+                  Affiliated to The Tamilnadu Dr.M.G.R Medical University.
                 </span>
               </span>
             </Link>
@@ -178,7 +224,7 @@ export default function Header() {
               className={`${styles["menu-toggle"]} ${menuOpen ? styles["menu-toggle--open"] : ""}`}
               aria-label="Toggle navigation menu"
               aria-expanded={menuOpen}
-              onClick={() => setMenuOpen((open) => !open)}
+              onClick={handleMenuToggle}
             >
               <span />
               <span />

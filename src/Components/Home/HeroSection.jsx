@@ -40,7 +40,7 @@ export default function HeroSection({ setAdmissionsModalOpen }) {
                   <span className={styles.mobileEnquireIcon} aria-hidden="true">
                     <span className={styles.arrowIcon} />
                   </span>
-                  <span>Enquire Now</span>
+                  <span>Explore Programs</span>
                 </Link>
 
                 <button

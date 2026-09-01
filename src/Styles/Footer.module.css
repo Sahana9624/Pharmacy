@@ -73,20 +73,21 @@
   font-size: clamp(1.15rem, 1.75rem, 1.9rem);
   font-weight: 500;
   color: #ffffff;
-  /* letter-spacing: 0.04em; */
+  letter-spacing: 0.04em;
 }
 
 .brandTagline {
   font-size: clamp(0.72rem, 1.188rem, 1.55rem);
   font-weight: 400;
   color: #989898;
-  /* letter-spacing: 0.01em; */
+  letter-spacing: 0.06rem;
   margin-top: 2px;
 }
 
 .brandAffiliation {
   font-size: clamp(0.52rem, 0.625rem, 1.78rem);
   font-weight: 500;
+  letter-spacing: -0.012rem;
   color: #C1A400;
   margin-top: 0.25rem;
 }
@@ -382,7 +383,7 @@
 
   .brandName {
     font-size: clamp(1.1rem, 1.75rem, 1.5rem);
-    letter-spacing: 0.07rem;
+    letter-spacing: 0.15rem;
   }
 
   .brandTagline {
@@ -391,7 +392,7 @@
 
   .brandAffiliation {
     font-size: clamp(0.6rem, 0.563rem, 0.85rem);
-    letter-spacing: -0.012rem;
+    letter-spacing: -0.018rem;
   }
 
   .footerDesc {

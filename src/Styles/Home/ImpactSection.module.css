@@ -93,6 +93,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  cursor: pointer;
 }
 
 .statValue {
@@ -101,12 +102,31 @@
   color: #0721A0;
   margin-bottom: 0.5rem;
   line-height: 1.1;
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
+  will-change: transform;
 }
 
 .statLabel {
   font-size: clamp(0.95rem, 1.25rem, 1.3rem);
   color: #676767;
   font-weight: 500;
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
+  will-change: transform;
+}
+
+/* DESKTOP HOVER ANIMATION (DEPTHT/ZOOM ILLUSION) */
+@media (min-width: 769px) {
+  .statItem:hover .statValue {
+    transform: scale(1.15);
+    color: #0721A0;
+  }
+
+  .statItem:hover .statLabel {
+    transform: translateY(8px);
+    color: #676767;
+  }
 }
 
 /* RESPONSIVE MEDIA QUERIES */

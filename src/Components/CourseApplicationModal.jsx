@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 import styles from "../Styles/CourseApplicationModal.module.css";
 import successCircleIcon from "../assets/icons/success-circle.svg";
 import successTickIcon from "../assets/icons/success-tick.svg";
@@ -33,16 +34,44 @@ export default function CourseApplicationModal({ isOpen, onClose, courseTitle, c
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
+      const handlePreventScroll = (e) => {
+        const modalEl = e.target.closest(`.${styles.modal}`);
+        if (modalEl) {
+          const { scrollTop, scrollHeight, clientHeight } = modalEl;
+          if (scrollHeight > clientHeight) {
+            const isScrollingUp = e.deltaY < 0;
+            const isScrollingDown = e.deltaY > 0;
+            const atTop = scrollTop <= 0;
+            const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
+            if ((isScrollingUp && !atTop) || (isScrollingDown && !atBottom)) {
+              return;
+            }
+          }
+        }
+        e.preventDefault();
+      };
+
+      const handlePreventKeys = (e) => {
+        const scrollKeys = ["Space", " ", "ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End"];
+        if (scrollKeys.includes(e.key)) {
+          const active = document.activeElement;
+          if (active && ["INPUT", "TEXTAREA", "SELECT"].includes(active.tagName)) {
+            return;
+          }
+          e.preventDefault();
+        }
+      };
+
+      window.addEventListener("wheel", handlePreventScroll, { passive: false });
+      window.addEventListener("touchmove", handlePreventScroll, { passive: false });
+      window.addEventListener("keydown", handlePreventKeys, { passive: false });
+
+      return () => {
+        window.removeEventListener("wheel", handlePreventScroll);
+        window.removeEventListener("touchmove", handlePreventScroll);
+        window.removeEventListener("keydown", handlePreventKeys);
+      };
     }
-    return () => {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-    };
   }, [isOpen]);
 
   useEffect(() => {
@@ -165,13 +194,16 @@ export default function CourseApplicationModal({ isOpen, onClose, courseTitle, c
     }
   };
 
-  return (
+  return ReactDOM.createPortal(
     <div 
       className={`${styles.overlay} ${isFadingOut ? styles.fadeOut : ''}`}
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           handleClose();
         }
+      }}
+      onTouchMove={(e) => {
+        if (e.target === e.currentTarget) e.preventDefault();
       }}
     >
       {!isSubmitted ? (
@@ -245,6 +277,7 @@ export default function CourseApplicationModal({ isOpen, onClose, courseTitle, c
           </div>
         </div>
       )}
-    </div>
+    </div>,
+    document.body
   );
 }

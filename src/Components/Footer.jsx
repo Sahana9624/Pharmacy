@@ -53,7 +53,7 @@ export default function Footer() {
               <span className={styles.brandName}>MOTHER TERASA</span>
               <span className={styles.brandTagline}>COLLEGE OF PHARMACY</span>
               <span className={styles.brandAffiliation}>
-                Affiliated to Dr.M.G.R Medical University, Chennai
+                Affiliated to The Tamilnadu Dr.M.G.R Medical University
               </span>
             </span>
           </Link>

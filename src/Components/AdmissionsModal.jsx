@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 import styles from "../Styles/AdmissionsModal.module.css";
 import modalImg from "../assets/images/admission-modal.jpg";
 import successCircleIcon from "../assets/icons/success-circle.svg";
@@ -28,16 +29,44 @@ export default function AdmissionsModal({ isOpen, onClose }) {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
+      const handlePreventScroll = (e) => {
+        const modalEl = e.target.closest(`.${styles.modal}`);
+        if (modalEl) {
+          const { scrollTop, scrollHeight, clientHeight } = modalEl;
+          if (scrollHeight > clientHeight) {
+            const isScrollingUp = e.deltaY < 0;
+            const isScrollingDown = e.deltaY > 0;
+            const atTop = scrollTop <= 0;
+            const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
+            if ((isScrollingUp && !atTop) || (isScrollingDown && !atBottom)) {
+              return;
+            }
+          }
+        }
+        e.preventDefault();
+      };
+
+      const handlePreventKeys = (e) => {
+        const scrollKeys = ["Space", " ", "ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End"];
+        if (scrollKeys.includes(e.key)) {
+          const active = document.activeElement;
+          if (active && ["INPUT", "TEXTAREA", "SELECT"].includes(active.tagName)) {
+            return;
+          }
+          e.preventDefault();
+        }
+      };
+
+      window.addEventListener("wheel", handlePreventScroll, { passive: false });
+      window.addEventListener("touchmove", handlePreventScroll, { passive: false });
+      window.addEventListener("keydown", handlePreventKeys, { passive: false });
+
+      return () => {
+        window.removeEventListener("wheel", handlePreventScroll);
+        window.removeEventListener("touchmove", handlePreventScroll);
+        window.removeEventListener("keydown", handlePreventKeys);
+      };
     }
-    return () => {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-    };
   }, [isOpen]);
 
   useEffect(() => {
@@ -120,8 +149,8 @@ export default function AdmissionsModal({ isOpen, onClose }) {
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          access_key: "9f26eec7-0a35-48ff-8cc8-1f92075d10f4", // Replace with your actual key
-          subject: "New Admissions Enquiry Submission of Mother Terasa College of Physiotherapy",
+          access_key: "9f26eec7-0a35-48ff-8cc8-1f92075d10f4",
+          subject: "New Admissions Enquiry Submission of Mother Terasa College of Pharmacy",
           Name: form.name,
           Mobile: form.mobile,
           Email: form.email
@@ -142,16 +171,18 @@ export default function AdmissionsModal({ isOpen, onClose }) {
     }
   };
 
-  return (
+  return ReactDOM.createPortal(
     <div
       className={`${styles.overlay} ${isFadingOut ? styles.fadeOut : ''}`}
       onClick={(e) => {
         if (e.target === e.currentTarget && !isSubmitted) {
           handleClose();
         } else if (e.target === e.currentTarget && isSubmitted) {
-          // If submitted, usually clicking outside also closes it, we can allow it
           handleClose();
         }
+      }}
+      onTouchMove={(e) => {
+        if (e.target === e.currentTarget) e.preventDefault();
       }}
     >
       <div className={`${styles.modal} ${isSubmitted ? styles.modalSmall : ''}`}>
@@ -171,7 +202,7 @@ export default function AdmissionsModal({ isOpen, onClose }) {
                 <img src={modalImg} alt="Student" />
                 <div className={styles.badgeContainer}>
                   <div className={styles.badgeTab}>Programs Offered</div>
-                  <div className={styles.badgeBody}>B.Pharm | Pharm.D | D.Pharm | M.Pharm</div>
+                  <div className={styles.badgeBody}>B.Pharm | Pharm.D | D.Pharm | M.Pharm | B.Pharm (Lateral Entry)</div>
                 </div>
               </div>
             </div>
@@ -257,6 +288,7 @@ export default function AdmissionsModal({ isOpen, onClose }) {
           </div>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

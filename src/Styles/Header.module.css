@@ -71,7 +71,7 @@
 .top-bar__email {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
@@ -83,6 +83,7 @@
   font-weight: 400;
   white-space: nowrap;
   align-items: center;
+  /* justify-content: center; */
 }
 
 /* .divider {
@@ -90,8 +91,8 @@
 } */
 
 .icon-wrap {
-  width: 1rem;
-  height: 1rem;
+  width: 24px;
+  height: 24px;
   display: inline-flex;
   flex-shrink: 0;
   vertical-align: middle;
@@ -645,7 +646,7 @@
   }
 
   .menu-toggle {
-    margin-right: -0.625rem;
+    margin-right: 0;
   }
 
   .mobile-chevron {
@@ -741,7 +742,7 @@
 
   .mega-menu__title {
     margin-bottom: 0.1rem;
-    padding-left: 1.55rem;
+    padding-left: 2rem;
     font-size: 1.125rem;
     font-weight: 400;
     color: #555555;
@@ -749,7 +750,7 @@
 
   .mega-menu__list {
     gap: 0.35rem;
-    padding-left: 1.55rem;
+    padding-left: 2rem;
     width: 100%;
     box-sizing: border-box;
   }
@@ -835,17 +836,18 @@
   .brand__name {
     font-size: 1.188rem;
     margin-bottom: 0.125rem;
+    letter-spacing: 0.06rem;
   }
 
   .brand__tagline {
     font-size: 0.813rem;
-    letter-spacing: 0.028rem;
+    letter-spacing: 0.04rem;
     margin-bottom: 0;
   }
 
   .brand__affiliation {
     font-size: 0.438rem;
-    letter-spacing: -0.008rem;
+    letter-spacing: -0.012rem;
   }
 
   .desktopOnly {
