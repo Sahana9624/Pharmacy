@@ -167,14 +167,22 @@ const facultyList = [
     dept: "",
     img: faculty18Img,
   },
-  {
-    id: "f-16",
-    name: "Mr. C. Selvanathan",
-    role: "Lecturer",
-    dept: "",
-    img: faculty19Img,
-  },
+  // {
+  //   id: "f-16",
+  //   name: "Mr. C. Selvanathan",
+  //   role: "Lecturer",
+  //   dept: "",
+  //   img: faculty19Img,
+  // },
 ];
+
+const chunkArray = (arr, size) => {
+  const chunks = [];
+  for (let i = 0; i < arr.length; i += size) {
+    chunks.push(arr.slice(i, i + size));
+  }
+  return chunks;
+};
 
 export default function Faculty() {
   return (
@@ -204,9 +212,9 @@ export default function Faculty() {
           
           {/* CATEGORY 1: PRINCIPAL */}
           <div className={styles.categoryBlock}>
-            <h2 className={styles.categoryTitle}>Principal</h2>
-            <div className={styles.singleCardWrapper}>
-              <div className={styles.facultyCard}>
+            <h2 className={styles.categoryTitle} data-fade data-fade-delay="0">Principal</h2>
+            <div className={styles.singleCardWrapper} data-fade-container>
+              <div className={styles.facultyCard} data-fade-item data-fade-delay="0">
                 <div className={styles.imgBox}>
                   <img src={principalData.img} alt={principalData.name} className={styles.facultyImg} />
                 </div>
@@ -220,10 +228,15 @@ export default function Faculty() {
 
           {/* CATEGORY 2: HEAD OF DEPARTMENT */}
           <div className={styles.categoryBlock}>
-            <h2 className={styles.categoryTitle}>Head of Department</h2>
-            <div className={styles.gridThree}>
-              {hodList.map((item) => (
-                <div key={item.id} className={styles.facultyCard}>
+            <h2 className={styles.categoryTitle} data-fade data-fade-delay="0">Head of Department</h2>
+            <div className={styles.gridThree} data-fade-container>
+              {hodList.map((item, idx) => (
+                <div
+                  key={item.id}
+                  className={styles.facultyCard}
+                  data-fade-item
+                  data-fade-delay={(idx * 0.15).toFixed(2)}
+                >
                   <div className={styles.imgBox}>
                     <img src={item.img} alt={item.name} className={styles.facultyImg} />
                   </div>
@@ -239,27 +252,44 @@ export default function Faculty() {
 
           {/* CATEGORY 3: ASSISTANT PROFESSORS AND LECTURERS */}
           <div className={styles.categoryBlock}>
-            <h2 className={styles.categoryTitle}>Assistant Professors and Lecturers</h2>
-            <div className={styles.gridThree}>
-              {facultyList.slice(0, 15).map((item) => (
-                <div key={item.id} className={styles.facultyCard}>
-                  <div className={styles.imgBox}>
-                    <img src={item.img} alt={item.name} className={styles.facultyImg} />
+            <h2 className={styles.categoryTitle} data-fade data-fade-delay="0">Assistant Professors and Lecturers</h2>
+            {chunkArray(facultyList.slice(0, 15), 3).map((row, rIdx) => (
+              <div
+                key={`faculty-row-${rIdx}`}
+                className={styles.gridThree}
+                data-fade-container
+                style={{ marginBottom: rIdx < 4 ? "clamp(1.5rem, 3vw, 2.5rem)" : "0" }}
+              >
+                {row.map((item, idx) => (
+                  <div
+                    key={item.id}
+                    className={styles.facultyCard}
+                    data-fade-item
+                    data-fade-delay={(idx * 0.15).toFixed(2)}
+                  >
+                    <div className={styles.imgBox}>
+                      <img src={item.img} alt={item.name} className={styles.facultyImg} />
+                    </div>
+                    <div className={styles.cardInfo}>
+                      <h3 className={styles.memberName}>{item.name}</h3>
+                      <p className={styles.memberRole}>{item.role}</p>
+                      {item.dept && <p className={styles.memberDept}>{item.dept}</p>}
+                    </div>
                   </div>
-                  <div className={styles.cardInfo}>
-                    <h3 className={styles.memberName}>{item.name}</h3>
-                    <p className={styles.memberRole}>{item.role}</p>
-                    {item.dept && <p className={styles.memberDept}>{item.dept}</p>}
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ))}
 
             {/* LAST FACULTY MEMBER CENTERED BELOW GRID */}
             {facultyList.length > 15 && (
-              <div className={styles.singleCardWrapper} style={{ marginTop: "clamp(1.5rem, 3vw, 2.5rem)" }}>
-                {facultyList.slice(15).map((item) => (
-                  <div key={item.id} className={styles.facultyCard}>
+              <div className={styles.singleCardWrapper} style={{ marginTop: "clamp(1.5rem, 3vw, 2.5rem)" }} data-fade-container>
+                {facultyList.slice(15).map((item, idx) => (
+                  <div
+                    key={item.id}
+                    className={styles.facultyCard}
+                    data-fade-item
+                    data-fade-delay={(idx * 0.15).toFixed(2)}
+                  >
                     <div className={styles.imgBox}>
                       <img src={item.img} alt={item.name} className={styles.facultyImg} />
                     </div>

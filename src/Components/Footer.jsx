@@ -43,10 +43,10 @@ export default function Footer() {
   };
 
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} data-fade-container>
       <div className={styles.footerTop}>
         {/* BRAND COLUMN */}
-        <div className={styles.footerBrand}>
+        <div className={styles.footerBrand} data-fade-item data-fade-delay="0.10">
           <Link to="/" className={styles.brand} onClick={scrollToTop}>
             <img src={logo} alt="Mother Terasa College of Pharmacy logo" className={styles.brandLogo} />
             <span className={styles.brandText}>
@@ -76,7 +76,7 @@ export default function Footer() {
               <img src={twitterIcon} alt="Twitter" className={styles.iconNormal} />
               <img src={twitterHoverIcon} alt="Twitter Hover" className={styles.iconHover} />
             </a>
-            <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com/_mtcop_official_?stkn=MWZmZThxemZscTZtMg==" aria-label="Instagram" target="_blank" rel="noreferrer">
               <img src={instagramIcon} alt="Instagram" className={styles.iconNormal} />
               <img src={instagramHoverIcon} alt="Instagram Hover" className={styles.iconHover} />
             </a>
@@ -89,10 +89,10 @@ export default function Footer() {
 
         {/* QUICK LINKS COLUMN */}
         <div className={`${styles.footerCol} ${styles.quickLinksCol}`}>
-          <h3>Quick Links</h3>
+          <h3 data-fade-item data-fade-delay="0.15">Quick Links</h3>
           <ul className={styles.quickLinksList}>
-            {quickLinks.map((link) => (
-              <li key={link.label}>
+            {quickLinks.map((link, idx) => (
+              <li key={link.label} data-fade-item data-fade-delay={(0.20 + idx * 0.06).toFixed(2)}>
                 <Link to={link.to} onClick={scrollToTop}>{link.label}</Link>
               </li>
             ))}
@@ -101,15 +101,15 @@ export default function Footer() {
 
         {/* CONTACT COLUMN */}
         <div className={`${styles.footerCol} ${styles.contactCol}`}>
-          <h3>Contact us</h3>
+          <h3 data-fade-item data-fade-delay="0.15">Contact us</h3>
           <ul className={styles.contactList}>
-            <li>
+            <li data-fade-item data-fade-delay="0.22">
               <img src={locationIcon} alt="Location" className={styles.contactIcon} />
               <span>
                 Mother Terasa College of Pharmacy, MTGI Campus, Mettusalai, Illuppur, Pudukkottai – 622 102
               </span>
             </li>
-            <li>
+            <li data-fade-item data-fade-delay="0.28">
               <img src={phoneIcon} alt="Phone" className={styles.contactIcon} />
               <div className={styles.phoneGroup}>
                 <span>+91-78068 28750</span>
@@ -117,7 +117,7 @@ export default function Footer() {
                 <span>+91-94434 94665</span>
               </div>
             </li>
-            <li>
+            <li data-fade-item data-fade-delay="0.34">
               <img src={mailIcon} alt="Email" className={styles.contactIcon} />
               <span>mtcp18@gmail.com</span>
             </li>
@@ -126,10 +126,10 @@ export default function Footer() {
 
         {/* MOBILE ONLY: LEGAL COLUMN */}
         <div className={`${styles.footerCol} ${styles.mobileLegalCol}`}>
-          <h3>Legal</h3>
+          <h3 data-fade-item data-fade-delay="0.15">Legal</h3>
           <ul className={styles.quickLinksList}>
-            {legalLinks.map((link) => (
-              <li key={link.label}>
+            {legalLinks.map((link, idx) => (
+              <li key={link.label} data-fade-item data-fade-delay={(0.20 + idx * 0.06).toFixed(2)}>
                 <Link to={link.to} onClick={scrollToTop}>{link.label}</Link>
               </li>
             ))}
@@ -138,7 +138,7 @@ export default function Footer() {
       </div>
 
       {/* BOTTOM BAR */}
-      <div className={styles.footerBottom}>
+      <div className={styles.footerBottom} data-fade-item data-fade-delay="0.30">
         <ul className={`${styles.legalLinks} ${styles.desktopLegalLinks}`}>
           {legalLinks.map((link) => (
             <li key={link.label}>

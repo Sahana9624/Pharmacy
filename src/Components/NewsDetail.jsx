@@ -36,13 +36,24 @@ export default function NewsDetail() {
 
       <section className={styles.contentSection}>
         <div className={styles.newsCard}>
-          <div className={styles.imageWrapper}>
+          <div className={styles.imageWrapper} data-fade data-fade-delay="0.0">
             <img src={newsItem.img || newsItem.coverImg || newsItem.image} alt={newsItem.title} />
           </div>
           <div className={styles.textContent}>
-            <p className={styles.date}>{newsItem.date}</p>
+            <p className={styles.date} data-fade data-fade-delay="0.15">{newsItem.date}</p>
             <div className={styles.description}>
-              {newsItem.description || newsItem.content || newsItem.summary}
+              {String(newsItem.description || newsItem.content || newsItem.summary)
+                .split("\n\n")
+                .map((para, idx) => (
+                  <p
+                    key={idx}
+                    data-fade
+                    data-fade-delay={(0.30 + idx * 0.15).toFixed(2)}
+                    style={{ marginBottom: "1rem", lineHeight: "1.7" }}
+                  >
+                    {para.trim()}
+                  </p>
+                ))}
             </div>
           </div>
         </div>

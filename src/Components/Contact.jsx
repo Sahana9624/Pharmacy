@@ -133,16 +133,17 @@ export default function Contact() {
       </section>
 
       {/* CONTACT DETAILS + FORM */}
-      <section className={styles["contact-section"]}>
+      <section className={styles["contact-section"]} data-fade-container>
         <div className={styles["contact-card"]}>
           <div className={styles["contact-card__info"]}>
-            <h1>Get in Touch with Us</h1>
-            <p className={styles.intro}>
-              We are here to help you. Please feel free to contact us with any questions or enquiries you may have.            </p>
+            <h1 data-fade-item data-fade-delay="0.10">Get in Touch with Us</h1>
+            <p className={styles.intro} data-fade-item data-fade-delay="0.18">
+              We are here to help you. Please feel free to contact us with any questions or enquiries you may have.
+            </p>
 
-            <h2>Contact Details</h2>
+            <h2 data-fade-item data-fade-delay="0.24">Contact Details</h2>
 
-            <div className={styles["detail-item"]}>
+            <div className={styles["detail-item"]} data-fade-item data-fade-delay="0.32">
               <span className={styles["detail-item__icon-phn"]} aria-hidden="true">
                 <img src={phoneIcon} alt="Phone" />
               </span>
@@ -158,18 +159,19 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className={styles["detail-item"]}>
+            <div className={styles["detail-item"]} data-fade-item data-fade-delay="0.40">
               <span className={styles["detail-item__icon-location"]} aria-hidden="true">
                 <img src={locationIcon} alt="Location" />
               </span>
               <div>
                 <h3>Our Address</h3>
                 <p>
-             Mother Terasa College of Pharmacy, MTGI Campus, Mettusalai, Illuppur, Pudukkottai – 622 102                </p>
+                  Mother Terasa College of Pharmacy, MTGI Campus, Mettusalai, Illuppur, Pudukkottai – 622 102
+                </p>
               </div>
             </div>
 
-            <div className={styles["detail-item"]}>
+            <div className={styles["detail-item"]} data-fade-item data-fade-delay="0.48">
               <span className={styles["detail-item__icon-mail"]} aria-hidden="true">
                 <img src={mailIcon} alt="Mail" />
               </span>
@@ -182,7 +184,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className={styles["contact-card__form"]}>
+          <div className={styles["contact-card__form"]} data-fade-item data-fade-delay="0.25">
             <h2>Contact Form</h2>
             <p className={styles["form-subtitle"]}>Please share the following Details</p>
 
@@ -274,8 +276,8 @@ export default function Contact() {
       </section>
 
       {/* MAP */}
-      <section className={styles["map-section"]}>
-        <div className={styles["map-card"]}>
+      <section className={styles["map-section"]} data-fade-container>
+        <div className={styles["map-card"]} data-fade-item data-fade-delay="0.10">
           <div className={styles["map-card__header"]}>
             <h2>Mother Terasa College of Pharmacy</h2>
             <p>Mettusalai, Illuppur, Pudukkottai(Dt), Tamilnadu-622102.</p>

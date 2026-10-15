@@ -56,27 +56,47 @@ export default function CourseDescription() {
               src={course.overviewImg || defaultOverviewImg}
               alt={`${course.title} Laboratory & Practical Training`}
               className={styles["details-grid__img"]}
+              data-fade
+              data-fade-delay="0.0"
             />
 
             <div className={styles["details-grid__content"]}>
-              <h2>Course Overview</h2>
-              <ul className={styles["bullet-list"]}>
-                <li>{course.overview}</li>
-              </ul>
+              <div data-fade data-fade-delay="0.15">
+                <h2>Course Overview</h2>
+                <ul className={styles["bullet-list"]}>
+                  <li>{course.overview}</li>
+                </ul>
+              </div>
 
-              <h2>Career Opportunities</h2>
-              <ul className={styles["bullet-list"]}>
-                {course.careerOpportunities.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+              <div data-fade-container style={{ marginTop: "2rem" }}>
+                <h2 data-fade data-fade-delay="0.0">Career Opportunities</h2>
+                <ul className={styles["bullet-list"]}>
+                  {course.careerOpportunities.map((item, idx) => (
+                    <li
+                      key={item}
+                      data-fade-item
+                      data-fade-delay={(0.15 + idx * 0.15).toFixed(2)}
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-              <h2>Eligibility Criteria</h2>
-              <ul className={styles["bullet-list"]}>
-                {course.eligibility.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+              <div data-fade-container style={{ marginTop: "2rem" }}>
+                <h2 data-fade data-fade-delay="0.0">Eligibility Criteria</h2>
+                <ul className={styles["bullet-list"]}>
+                  {course.eligibility.map((item, idx) => (
+                    <li
+                      key={item}
+                      data-fade-item
+                      data-fade-delay={(0.15 + idx * 0.15).toFixed(2)}
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </section>

@@ -215,18 +215,20 @@ export default function FacilitiesSection() {
     <section className={styles.facCardSection} id="facilities-accordion">
       <div className={styles.facContainerCard}>
         {/* TOP BLUE HEADER BAR */}
-        <div className={styles.facCardHeader}>
+        <div className={styles.facCardHeader} data-fade data-fade-delay="0">
           <h2>Modern Facilities at <span>Mother Terasa College of Pharmacy</span></h2>
         </div>
 
         {/* ACCORDION ITEMS LIST */}
-        <div className={styles.facAccordionList}>
+        <div className={styles.facAccordionList} data-fade-container>
           {facilitiesData.map((item, idx) => {
             const isOpen = openIndices.includes(idx);
             return (
               <div
                 key={item.title}
                 className={`${styles.facItem} ${isOpen ? styles.facItemOpen : ""}`}
+                data-fade-item
+                data-fade-delay={((idx % 3) * 0.08).toFixed(2)}
               >
                 <button
                   className={`${styles.facBtn} ${isOpen ? styles.facBtnOpen : ""}`}

@@ -3,11 +3,18 @@ import styles from "../../Styles/Home/CampusLifeSection.module.css";
 import campusImg1 from "../../assets/images/campus-life-1.png";
 import campusImg2 from "../../assets/images/campus-life-2.png";
 import campusImg3 from "../../assets/images/campus-life-3.png";
+import campusImg4 from "../../assets/images/campus-life-4.jpg";
+import campusImg5 from "../../assets/images/campus-life-5.jpg";
+
 
 const campusImages = [
   { src: campusImg2, alt: "Singer Performing at Aranga 2026" },
   { src: campusImg3, alt: "Event Anchors at Aranga 2026" },
   { src: campusImg1, alt: "Aranga 2026 Moments" },
+  { src: campusImg4, alt: "Aranga 2026 Moments" },
+  { src: campusImg5, alt: "Aranga 2026 Moments" },
+
+
 ];
 
 export default function CampusLife() {
@@ -16,7 +23,7 @@ export default function CampusLife() {
   return (
     <section className={styles.campusSection}>
       {/* OUTER BLUE HEADER */}
-      <div className={styles.campusOuterHeader}>
+      <div className={styles.campusOuterHeader} data-fade data-fade-delay="0">
         <h2 className={styles.outerTitle}>Campus Life @MTIAHS</h2>
         <p className={styles.outerSubtitle}>
           Everything you need to know about our programs and admission process.
@@ -24,7 +31,7 @@ export default function CampusLife() {
       </div>
 
       {/* FLOATING WHITE CARD CONTAINER */}
-      <div className={styles.campusCardContainer}>
+      <div className={styles.campusCardContainer} data-fade data-fade-delay="0.15">
         <div className={styles.campusWhiteCard}>
           {/* FEST HEADER INSIDE CARD */}
           <div className={styles.festHeader}>

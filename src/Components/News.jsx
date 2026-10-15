@@ -26,34 +26,53 @@ export default function News() {
             <img src={nextIcon} alt="" className={styles.breadcrumbArrow} aria-hidden="true" />
             <span className={styles["breadcrumb__current"]}>News and Events</span>
           </nav>
-          <h1>Happenings @MTCN</h1>
+          <h1>Happenings @MTCOP</h1>
         </div>
       </section>
 
       {/* NEWS GRID */}
       <section className={styles["grid-section"]}>
-        <div className={styles["subtitle"]}>
+        <div className={styles["subtitle"]} data-fade data-fade-delay="0">
           <h1>News and Events</h1>
           <h3>Department News and Events are Regularly Updated</h3>
         </div>
-        <div className={styles["news-grid"]}>
-          {newsItems.map((item) => (
-            <Link to={item.href || `/news/${item.slug}`} className={styles["news-card"]} key={item.title}>
-              <div className={styles["news-card__img-wrap"]}>
-                <img src={item.img || item.coverImg || item.image} alt={item.title} className={styles["news-card__img"]} />
-                {item.isNew && <span className={styles["news-card__badge"]}>New</span>}
-              </div>
+        <div className={styles["news-grid"]} data-fade-container>
+          {newsItems.map((item, idx) => {
+            const rowIdx = Math.floor(idx / 3);
+            const colIdx = idx % 3;
+            let delay;
+            if (rowIdx === 0) {
+              delay = 0.10 + colIdx * 0.15;
+            } else if (rowIdx === 1) {
+              delay = 0.22 + colIdx * 0.15;
+            } else {
+              delay = colIdx * 0.15;
+            }
 
-              <h2>{item.title}</h2>
-              <p className={styles["news-card__date"]}>{item.date}</p>
-              <p className={styles["news-card__excerpt"]}>{item.excerpt || item.summary}</p>
+            return (
+              <Link
+                to={item.href || `/news/${item.slug}`}
+                className={styles["news-card"]}
+                key={item.slug || item.title}
+                data-fade-item
+                data-fade-delay={delay.toFixed(2)}
+              >
+                <div className={styles["news-card__img-wrap"]}>
+                  <img src={item.img || item.coverImg || item.image} alt={item.title} className={styles["news-card__img"]} />
+                  {item.isNew && <span className={styles["news-card__badge"]}>New</span>}
+                </div>
 
-              <span className={styles["news-card__link"]}>
-                <span className={styles["arrow-icon"]} aria-hidden="true" />
-                <span>Know more</span>
-              </span>
-            </Link>
-          ))}
+                <h2>{item.title}</h2>
+                <p className={styles["news-card__date"]}>{item.date}</p>
+                <p className={styles["news-card__excerpt"]}>{item.excerpt || item.summary}</p>
+
+                <span className={styles["news-card__link"]}>
+                  <span className={styles["arrow-icon"]} aria-hidden="true" />
+                  <span>Know more</span>
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </section>
 

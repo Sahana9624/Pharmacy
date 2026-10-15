@@ -16,6 +16,7 @@ export default function GalleryDetail() {
   }
 
   const heroImage = galleryItem.images?.[0] || galleryItem.coverImg || galleryItem.image || galleryItem.img || bgImg;
+  const images = (galleryItem.images || [galleryItem.coverImg || galleryItem.image || galleryItem.img]).filter(Boolean);
 
   return (
     <main className={styles.galleryDetail}>
@@ -36,10 +37,23 @@ export default function GalleryDetail() {
       </section>
 
       <section className={styles.gridSection}>
-        <div className={styles.imageGrid}>
-          {(galleryItem.images || [galleryItem.coverImg || galleryItem.image || galleryItem.img]).filter(Boolean).map((imgSrc, idx) => (
-            <img key={idx} src={imgSrc} alt={`${galleryItem.title} ${idx + 1}`} className={styles.gridImg} />
-          ))}
+        <div className={styles.imageGrid} data-fade-container>
+          {images.map((imgSrc, idx) => {
+            const rowIdx = Math.floor(idx / 3);
+            const colIdx = idx % 3;
+            const delay = rowIdx === 1 ? (colIdx * 0.15 + 0.12) : (colIdx * 0.15);
+
+            return (
+              <img
+                key={idx}
+                src={imgSrc}
+                alt={`${galleryItem.title} ${idx + 1}`}
+                className={styles.gridImg}
+                data-fade-item
+                data-fade-delay={delay.toFixed(2)}
+              />
+            );
+          })}
         </div>
       </section>
 

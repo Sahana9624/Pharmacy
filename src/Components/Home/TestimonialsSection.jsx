@@ -34,7 +34,7 @@ const testimonials = [
   },
   {
     quote:
-      "Studying here has been a wonderful experience. The emphasis on practical learning, internships, and professional development has prepared me well for a successful career in Nursing.",    
+      "Studying here has been a wonderful experience. The emphasis on practical learning, internships, and professional development has prepared me well for a successful career in Pharmacy.",    
     name: "Keerthana S.",
     work: "B.Pharm 2026 Batch",
   },
@@ -108,14 +108,14 @@ export default function Testimonials() {
   return (
     <section className={styles["testimonial-section"]}>
       <div className={styles["testimonial-section__container"]}>
-        <div className={`${styles["section-eyebrow"]} ${styles["section-eyebrow--pill"]}`}>
+        <div className={`${styles["section-eyebrow"]} ${styles["section-eyebrow--pill"]}`} data-fade>
           Student Reviews
         </div>
-        <h2 className={`${styles["section-title"]} ${styles["section-title--light"]}`}>
+        <h2 className={`${styles["section-title"]} ${styles["section-title--light"]}`} data-fade data-fade-delay="0.1">
           Hear From Our Students
         </h2>
-        <p className={`${styles["section-subtitle"]} ${styles["section-subtitle--light"]}`}>
-          Discover how our nursing programs have inspired students to grow with confidence, 
+        <p className={`${styles["section-subtitle"]} ${styles["section-subtitle--light"]}`} data-fade data-fade-delay="0.2">
+          Discover how our pharmacy programs have inspired students to grow with confidence, 
           compassion, and professional excellence.
         </p>
 
@@ -129,13 +129,19 @@ export default function Testimonials() {
           onTouchStart={() => setIsPaused(true)}
           onTouchEnd={() => setIsPaused(false)}
           onScroll={handleScroll}
+          data-fade-container
         >
           <div 
             className={styles["testimonial-marquee-track"]}
             style={{ animationPlayState: (isPaused || isDragging) ? 'paused' : undefined }}
           >
             {Array(20).fill(testimonials).flat().map((t, i) => (
-              <div className={styles["testimonial-card"]} key={`${t.name}-${i}`}>
+              <div
+                className={styles["testimonial-card"]}
+                key={`${t.name}-${i}`}
+                data-fade-item
+                data-fade-delay={`${((i % 6) * 0.15).toFixed(2)}`}
+              >
                 <p className={styles["testimonial-card__quote"]}>
                   &ldquo;{t.quote}&rdquo;
                 </p>

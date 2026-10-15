@@ -35,7 +35,7 @@ export default function LeadershipSection() {
         </h2>
         <p className={styles.sectionSubtitle}>
           Our leadership is dedicated to creating a transformative learning environment 
-          that empowers students to excel in healthcare and nursing.
+          that empowers students to excel in healthcare and pharmacy.
         </p>  
       </div>
 
@@ -103,35 +103,31 @@ export default function LeadershipSection() {
         {/* PRINCIPAL CARD */}
         <div className={styles.leaderCard}>
           <div className={`${styles.leaderCardPhotoWrap} ${styles.fadeUp}`}>
-            <img src={principalImg} alt="Prof. R. Anbu Dhanabalan" className={styles.leaderCardPhoto} />
+            <img src={principalImg} alt="Prof. Dr. T. Shri Vijaya Kirubha" className={styles.leaderCardPhoto} />
           </div>
           <div className={`${styles.leaderCardContent} ${styles.fadeUp} ${styles.fadeUpDelay}`}>
             <h3>Principal of Mother Terasa College Of Pharmacy</h3>
             <p>
-              “We Cordially Invite you to our Mother Terasa Paramedical Institute, 
-              We are Dedicated to Train the Next generation of Health inspectors, 
-              Who can Serve the Society with Passion and Make Meaningful Impact on 
-              the life and surroundings of the Rural People.
+              Warm Greetings from Mother Terasa College of Pharmacy!
+              It gives me immense pleasure to welcome you all to Mother Terasa College of Pharmacy - a place where passion meets purpose and learning meets excellence.
             </p>
             <p>
-              Our Mission is to provide Handson Training to the Young Trainees .So that 
-              they are well Prepared to Serve the Society. <br />Health Inspectors are Supposed 
-              to be very passionate in Serving the Rural People With Compassion and Empathy.<br />
-              In our institute our Faculty includes batch of Retried Health Inspectors who 
-              have 30 +years of Services in the field .In addition we are HIRING SUBJECTS 
-              Experts from Variable fields as external Faculty while our trainees are well 
-              enriched in the Theory, our main focus is on the field Training.<br /> Six batches 
-              of our Trainees, of around 350 Health Inspectors are working in various 
-              Districts of Tamil nadu. As the principal of this college, I invite you to 
-              explore our website, learn more about our programs, and discover how we can 
-              help you achieve your goals. Whether you are a prospective student, a 
-              healthcare professional, or a community member, we look forward to 
-              collaborating with you and contributing to the advancement of Health 
-              Inspectors education and practice."
+              Since its inception in 2018, our institution has been committed to nurturing young minds with knowledge, skills, and values essential for shaping them into competent and socially responsible pharmacy professionals. With the approval of the Pharmacy Council of India, New Delhi and affiliation to The Tamil Nadu Dr. M.G.R. Medical University, our college stands as a symbol of quality education and holistic development.
             </p>
-              <p className={styles.leaderCardName}>Prof. Dr. T. Shri Vijaya Kirubha, M.Pharm., Ph.D.,</p>
-              <p className={styles.leaderCardRole}>Principal</p>
-            
+            <p>
+              We believe that education is not just about acquiring a degree, but about developing a strong character, scientific insight, ethical values, and a commitment to serve society. At Mother Terasa College of Pharmacy, we provide a vibrant academic environment, well-equipped laboratories, modern infrastructure, and a dedicated team of highly qualified faculty who guide students towards academic excellence and research innovation.
+            </p>
+            <p>
+              Our students have excelled in academics, research, sports, and various extension activities, bringing laurels to the institution. The Placement Cell of our college works actively to create excellent career opportunities for our students, with many of them placed in reputed pharmaceutical companies, hospitals, and research organizations, while others have pursued higher studies. We focus on instilling moral uprightness, scientific temperament, and social commitment in every student. I am confident that with these qualities, our graduates will emerge not just as successful pharmacists but as responsible citizens contributing positively to society.
+            </p>
+            <p>
+              I warmly invite all aspiring students to be a part of Mother Terasa College of Pharmacy, to explore their potential, and to build a bright and rewarding career in the field of pharmacy.
+            </p>
+            <p>
+              &ldquo;Join us to learn, lead, and serve with excellence.&rdquo;
+            </p>
+            <p className={styles.leaderCardName}>Prof. Dr. T. Shri Vijaya Kirubha, M.Pharm., Ph.D.,</p>
+            <p className={styles.leaderCardRole}>Principal</p>
           </div>
         </div>
       </div>

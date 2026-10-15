@@ -6,7 +6,7 @@ import founderImg from "../../assets/images/purpose-2.jpg";
 export default function ExcellenceSection() {
   return (
     <section className={styles.excellenceSection}>
-      <div className={styles.excellenceHeader}>
+      <div className={styles.excellenceHeader} data-fade data-fade-delay="0">
         <h2 className={styles.excellenceTitle}>
           Over 8 Years of Excellence in Pharmaceutical Education
         </h2>
@@ -18,7 +18,7 @@ export default function ExcellenceSection() {
       <div className={styles.purposeBlueCard}>
         <div className={styles.purposeGlassWrapper}>
           {/* TOP CLASSROOM BANNER IMAGE */}
-          <div className={styles.purposeBannerWrapper}>
+          <div className={styles.purposeBannerWrapper} data-fade data-fade-delay="0.2">
             <img
               src={missionImg}
               alt="Pharmacy Students Classroom"
@@ -27,7 +27,7 @@ export default function ExcellenceSection() {
           </div>
 
           {/* OUR PURPOSE BLOCK */}
-          <div className={styles.purposeTextBlock}>
+          <div className={styles.purposeTextBlock} data-fade data-fade-delay="0.35">
             <span className={styles.purposeYellowEyebrow}>Our Purpose</span>
             <h2 className={styles.purposeMainTitle}>Mother Terasa College Of Pharmacy</h2>
             <p className={styles.purposeDesc}>
@@ -39,8 +39,8 @@ export default function ExcellenceSection() {
           </div>
 
           {/* MISSION AND VISION GRID */}
-          <div className={styles.missionVisionGrid}>
-            <div className={styles.missionVisionImageWrapper}>
+          <div className={styles.missionVisionGrid} data-fade-container>
+            <div className={styles.missionVisionImageWrapper} data-fade-item data-fade-delay="0.0">
               <img
                 src={founderImg}
                 alt="Pharmacy Laboratory Research"
@@ -49,14 +49,14 @@ export default function ExcellenceSection() {
             </div>
 
             <div className={styles.missionVisionContent}>
-              <div className={styles.missionBlock}>
+              <div className={styles.missionBlock} data-fade-item data-fade-delay="0.15">
                 <h3 className={styles.mvTitle}>Our Mission</h3>
                 <p className={styles.mvDesc}>
                   Our mission is to empower students through high-quality education, advanced learning technologies, and practical skill development while fostering self-directed growth, entrepreneurship, and critical thinking. We strive to create greater opportunities for students by nurturing inquisitive minds and preparing graduates with the knowledge, confidence, and abilities needed to contribute meaningfully to healthcare and society.
                 </p>
               </div>
 
-              <div className={styles.visionBlock}>
+              <div className={styles.visionBlock} data-fade-item data-fade-delay="0.30">
                 <h3 className={styles.mvTitle}>Our Vision</h3>
                 <p className={styles.mvDesc}>
                   To evolve as a Center of Excellence by imparting quality education that nurtures knowledge, skills, and professional competence. We strive to develop highly capable healthcare professionals who demonstrate credibility, compassion, and clinical excellence. Our vision is to foster integrity, nobility, and ethical values in every student while encouraging lifelong learning and innovation. Through holistic education, we aim to prepare responsible individuals who contribute meaningfully to society and the advancement of healthcare.

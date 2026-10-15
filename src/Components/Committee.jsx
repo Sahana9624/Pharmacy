@@ -12,8 +12,8 @@ const committeeMembers = [
   { sNo: 2, name: "Dr. Punitha", designation: "Professor", nominatedAs: "Co-ordinator" },
   { sNo: 3, name: "Mr. P. Selvaganesh", designation: "Associate Professor", nominatedAs: "Member" },
   { sNo: 4, name: "Mrs. A. Gayathri", designation: "Associate Professor", nominatedAs: "Member" },
-  { sNo: 5, name: "Ms. A. Kiruthika", designation: "Lecturer", nominatedAs: "Chairman" },
-  { sNo: 6, name: "Mrs. K. Sudha", designation: "Computer Assistant", nominatedAs: "Chairman" },
+  { sNo: 5, name: "Ms. A. Kiruthika", designation: "Lecturer", nominatedAs: "Member" },
+  { sNo: 6, name: "Mrs. K. Sudha", designation: "Computer Assistant", nominatedAs: "Member" },
   { sNo: 7, name: "Ms. Vasunthra", designation: "B.Pharm IV year", nominatedAs: "Student Representative" },
   { sNo: 8, name: "Ms. Harini", designation: "B.Pharm IV year", nominatedAs: "Student Member" },
   { sNo: 9, name: "Ms. Pratheesha", designation: "B.Pharm III year", nominatedAs: "Student Member" },
@@ -55,7 +55,7 @@ export default function Committee() {
         <div className={styles.container}>
           
           {/* INTRODUCTORY TITLE & PARAGRAPH */}
-          <div className={styles.introBlock}>
+          <div className={styles.introBlock} data-fade data-fade-delay="0.10">
             <h2 className={styles.sectionTitle}>
               PREVENTION OF SEXUAL HARASSMENT (POSH) COMMITTEE
             </h2>
@@ -65,13 +65,18 @@ export default function Committee() {
           </div>
 
           {/* 4 SEPARATE VERTICAL COLUMN CARDS */}
-          <div className={styles.tableWrapper}>
+          <div className={styles.tableWrapper} data-fade-container>
             <div className={styles.columnsGrid}>
               {/* COLUMN 1: S.NO */}
               <div className={`${styles.columnCard} ${styles.colCardSno}`}>
                 <div className={`${styles.columnHeader} ${styles.columnHeaderCenter}`}>S.NO</div>
-                {committeeMembers.map((row) => (
-                  <div key={row.sNo} className={`${styles.columnCell} ${styles.columnCellCenter}`}>
+                {committeeMembers.map((row, idx) => (
+                  <div
+                    key={row.sNo}
+                    className={`${styles.columnCell} ${styles.columnCellCenter}`}
+                    data-fade-item
+                    data-fade-delay={((idx % 6) * 0.08).toFixed(2)}
+                  >
                     {row.sNo}
                   </div>
                 ))}
@@ -80,8 +85,13 @@ export default function Committee() {
               {/* COLUMN 2: NAME */}
               <div className={`${styles.columnCard} ${styles.colCardName}`}>
                 <div className={styles.columnHeader}>NAME</div>
-                {committeeMembers.map((row) => (
-                  <div key={row.sNo} className={styles.columnCell}>
+                {committeeMembers.map((row, idx) => (
+                  <div
+                    key={row.sNo}
+                    className={styles.columnCell}
+                    data-fade-item
+                    data-fade-delay={((idx % 6) * 0.08).toFixed(2)}
+                  >
                     {row.name}
                   </div>
                 ))}
@@ -90,8 +100,13 @@ export default function Committee() {
               {/* COLUMN 3: DESIGNATION */}
               <div className={`${styles.columnCard} ${styles.colCardDesig}`}>
                 <div className={styles.columnHeader}>DESIGNATION</div>
-                {committeeMembers.map((row) => (
-                  <div key={row.sNo} className={styles.columnCell}>
+                {committeeMembers.map((row, idx) => (
+                  <div
+                    key={row.sNo}
+                    className={styles.columnCell}
+                    data-fade-item
+                    data-fade-delay={((idx % 6) * 0.08).toFixed(2)}
+                  >
                     {row.designation}
                   </div>
                 ))}
@@ -100,8 +115,13 @@ export default function Committee() {
               {/* COLUMN 4: NOMINATED AS */}
               <div className={`${styles.columnCard} ${styles.colCardNom}`}>
                 <div className={styles.columnHeader}>NOMINATED AS</div>
-                {committeeMembers.map((row) => (
-                  <div key={row.sNo} className={styles.columnCell}>
+                {committeeMembers.map((row, idx) => (
+                  <div
+                    key={row.sNo}
+                    className={styles.columnCell}
+                    data-fade-item
+                    data-fade-delay={((idx % 6) * 0.08).toFixed(2)}
+                  >
                     {row.nominatedAs}
                   </div>
                 ))}
@@ -110,7 +130,7 @@ export default function Committee() {
           </div>
 
           {/* OBJECTIVES SECTION */}
-          <div className={styles.objectivesBlock}>
+          <div className={styles.objectivesBlock} data-fade data-fade-delay="0.10">
             <h3 className={styles.objectivesTitle}>OBJECTIVES</h3>
             <ul className={styles.objectivesList}>
               {objectivesList.map((item, idx) => (
@@ -120,7 +140,7 @@ export default function Committee() {
           </div>
 
           {/* EMAIL CONTACT BLOCK */}
-          <div className={styles.emailBlock}>
+          <div className={styles.emailBlock} data-fade data-fade-delay="0.10">
             <h4 className={styles.emailLabel}>Email</h4>
             <a href="mailto:mtcpcarebox25@gmail.com" className={styles.emailLink}>
               mtcpcarebox25@gmail.com

@@ -42,7 +42,7 @@ export const coursesData = {
     title: "Diploma in Pharmacy",
     shortTitle: "D.Pharm",
     subtitle: "Diploma in Pharmacy",
-    duration: " Course Duration - 2 Years",
+    duration: " Course Duration - 6 Years",
     approval: "Intake - 60",
     heroImg: heroStudents2Img,
     overviewImg: lab2Img,

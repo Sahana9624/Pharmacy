@@ -45,7 +45,7 @@ export default function CoursesSection() {
       <div className={styles.coursesWrapper}>
         <div className={styles.coursesContainer}>
           {/* SECTION HEADER */}
-          <div className={styles.sectionHeader}>
+          <div className={styles.sectionHeader} data-fade data-fade-delay="0">
             <h2>Explore Our Courses</h2>
             <p>
               Industry-focused pharmacy programs designed to build clinical
@@ -54,15 +54,17 @@ export default function CoursesSection() {
           </div>
 
           {/* CARDS GRID */}
-          <div className={styles.cardsGrid}>
+          <div className={styles.cardsGrid} data-fade-container>
             {/* TOP ROW: 3 CARDS */}
             <div className={styles.topRow}>
-              {coursesList.slice(0, 3).map((course) => (
+              {coursesList.slice(0, 3).map((course, idx) => (
                 <Link
                   to={`/course-description/${course.slug}`}
                   className={styles.courseCard}
                   key={course.id}
                   style={{ textDecoration: 'none' }}
+                  data-fade-item
+                  data-fade-delay={(idx * 0.15).toFixed(2)}
                 >
                   <h3 className={styles.cardTitle}>{course.title}</h3>
                   <p className={styles.cardSubtitle}>{course.subtitle}</p>
@@ -76,12 +78,14 @@ export default function CoursesSection() {
 
             {/* BOTTOM ROW: 2 CARDS CENTERED */}
             <div className={styles.bottomRow}>
-              {coursesList.slice(3, 5).map((course) => (
+              {coursesList.slice(3, 5).map((course, idx) => (
                 <Link
                   to={`/course-description/${course.slug}`}
                   className={styles.courseCard}
                   key={course.id}
                   style={{ textDecoration: 'none' }}
+                  data-fade-item
+                  data-fade-delay={((idx + 3) * 0.15).toFixed(2)}
                 >
                   <h3 className={styles.cardTitle}>{course.title}</h3>
                   <p className={styles.cardSubtitle}>{course.subtitle}</p>

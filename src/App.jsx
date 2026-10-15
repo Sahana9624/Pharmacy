@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./Components/ScrollToTop";
+import ScrollFadeObserver from "./Components/ScrollFadeObserver";
 import Home from "./Components/Home";
 import Header from "./Components/Header";
 import About from "./Components/About";
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollFadeObserver />
       <div className="wrapper">
         <ScrollToTop />
         <Header />

@@ -39,7 +39,7 @@ const whyStudyFeatures = [
 export default function WhyStudySection() {
   return (
     <section className={styles.whySection}>
-      <div className={styles.whyHeader}>
+      <div className={styles.whyHeader} data-fade data-fade-delay="0">
         <h2 className={styles.whyTitle}>
           Why Study at <span className={styles.highlightBlue}>Mother Terasa College of Pharmacy</span>
         </h2>
@@ -49,15 +49,20 @@ export default function WhyStudySection() {
       </div>
 
       <div className={styles.whyGrid}>
-        <div className={styles.whyImageCol}>
+        <div className={styles.whyImageCol} data-fade data-fade-delay="0.4">
           <div className={styles.buildingImageCard}>
             <img src={buildingImg} alt="Mother Terasa College of Pharmacy Building" className={styles.buildingImg} />
           </div>
         </div>
 
-        <div className={styles.whyFeaturesCol}>
-          {whyStudyFeatures.map((feat) => (
-            <div className={styles.featureItem} key={feat.title}>
+        <div className={styles.whyFeaturesCol} data-fade-container>
+          {whyStudyFeatures.map((feat, index) => (
+            <div
+              className={styles.featureItem}
+              key={feat.title}
+              data-fade-item
+              data-fade-delay={(index * 0.15).toFixed(2)}
+            >
               <div className={styles.featureIconBox}>
                 <img src={feat.icon} alt="" className={styles.featureIconSvg} />
               </div>

@@ -41,16 +41,16 @@ export default function FaqSection() {
       <div className={styles.faqGridContainer}>
         {/* LEFT COLUMN */}
         <div className={styles.faqLeftCol}>
-          <span className={styles.pillBadgeGreen}>Frequently asked questions</span>
-          <h2 className={styles.faqTitle}>Got Questions? We've Got Answers</h2>
-          <p className={styles.faqSubtitle}>
+          <span className={styles.pillBadgeGreen} data-fade data-fade-delay="0">Frequently asked questions</span>
+          <h2 className={styles.faqTitle} data-fade data-fade-delay="0.1">Got Questions? We've Got Answers</h2>
+          <p className={styles.faqSubtitle} data-fade data-fade-delay="0.2">
             Everything you need to know about our programs and admission process.
           </p>
         </div>
 
         {/* RIGHT COLUMN ACCORDION */}
         <div className={styles.faqRightCol}>
-          <div className={styles.faqList}>
+          <div className={styles.faqList} data-fade-container>
             {faqData.map((item, idx) => {
               const isOpen = openFaq === idx;
               return (
@@ -58,6 +58,8 @@ export default function FaqSection() {
                   className={`${styles.faqItem} ${isOpen ? styles.faqItemOpen : ""}`}
                   key={item.q}
                   onClick={() => toggleFaq(idx)}
+                  data-fade-item
+                  data-fade-delay={(idx * 0.15).toFixed(2)}
                 >
                   <div
                     className={`${styles.faqQuestionBtn} ${isOpen ? styles.faqQuestionBtnOpen : ""}`}
